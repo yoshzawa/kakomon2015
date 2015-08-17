@@ -36,7 +36,7 @@ public class Exam extends EntityCommon{
 		String kindName = "Exams";
 		String id = getId();
 
-		Entity entity = getEntity(kindName,id);
+		Entity entity = getNewEntity(kindName,id);
 		entity.setProperty("id", getId());
 		entity.setProperty("name", getName());
 		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
