@@ -1,5 +1,6 @@
 package com.gmail.yoshzawa.kakomon2015.dataStore;
 
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.*;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -7,8 +8,13 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
+@EntityKind
 public class Exam extends EntityCommon{
+	
+	@EntityField
 	String id;
+
+	@EntityField
 	String name;
 
 	public String getId() {

@@ -18,6 +18,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 		resp.getWriter().println("<h1>");
 		resp.getWriter().println(e.getName()+"は登録されています");
 		resp.getWriter().println("</h1>");
+		fe1_1.getFields();
 		
 		Question fe1_1_01 = new Question("FEG-10101-01", "FEG-10101", 1, "H24 春 FE午前 01",3);
 		fe1_1_01.put();
