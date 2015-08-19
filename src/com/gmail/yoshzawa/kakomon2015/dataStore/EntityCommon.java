@@ -23,15 +23,13 @@ public class EntityCommon {
 	@EntityField
 	String id;
 
-	Entity getNewEntity(String kindName, String id) {
+	private Entity getNewEntity(String kindName, String id) {
 		Key key = KeyFactory.createKey(kindName, id);
 		Entity entity = new Entity(key);
 		return entity;
 	}
 
 	public final void put() throws NoSuchFieldException
-	// throws SecurityException, IllegalArgumentException,
-	// IllegalAccessException
 	{
 		String kindName = getKind();
 		String[] fieldName = getFields();

@@ -1,15 +1,8 @@
 package com.gmail.yoshzawa.kakomon2015.dataStore;
 
-import java.util.List;
-
 import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
 import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityKind;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
 @EntityKind
 public class Question extends EntityCommon{

@@ -1,21 +1,20 @@
 package com.gmail.yoshzawa.kakomon2015.dataStore;
 
-import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.*;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityKind;
 import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
 @EntityKind
-public class Exam extends EntityCommon{
-	
-//	@EntityField
-//	String id;
+public class Exam extends EntityCommon {
 
 	@EntityField
 	String name;
+
+	@EntityField
+	Set<String> questions;
 
 	public String getName() {
 		return name;
@@ -25,18 +24,38 @@ public class Exam extends EntityCommon{
 		this.name = name;
 	}
 
-	public Exam(String id, String name) {
-		setId(id);
-		setName(name);
+	public Set<String> getQuestions() {
+		return questions;
 	}
 
-	public static Exam get(String id){
-		Entity e = get(Exam.class,id);
-		if(e != null){
+	public void setQuestions(Set<String> questions) {
+		this.questions = questions;
+	}
+
+	public void addQuestions(String question) {
+		Set<String> qs = getQuestions();
+		qs.add(question);
+		setQuestions(qs);
+	}
+
+	public Exam(String id, String name, Set<String> questions) {
+		setId(id);
+		setName(name);
+		setQuestions(questions);
+	}
+
+	public Exam(String id, String name) {
+		this(id, name, new HashSet<String>());
+	}
+
+	public static Exam get(String id) {
+		Entity e = get(Exam.class, id);
+		if (e != null) {
 			String name = (String) e.getProperty("name");
-			return new Exam(id, name);
+			@SuppressWarnings("unchecked")
+			Set<String> questions = (Set<String>) e.getProperty("questions");
+			return new Exam(id, name, questions);
 		}
 		return null;
 	}
-
 }
