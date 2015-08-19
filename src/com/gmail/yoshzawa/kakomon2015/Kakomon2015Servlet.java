@@ -13,18 +13,32 @@ public class Kakomon2015Servlet extends HttpServlet {
 
 		
 		Exam fe1_1 = new Exam("FEG-10101", "基礎理論");
-		fe1_1.put();
+		try {
+			fe1_1.put();
+		} catch (NoSuchFieldException e1) {
+			e1.printStackTrace();
+		}
 		Exam e = Exam.get("FEG-10101");
 		resp.getWriter().println("<h1>");
+		if(e != null)
 		resp.getWriter().println(e.getName()+"は登録されています");
+		else
+			resp.getWriter().println("登録されていません");
 		resp.getWriter().println("</h1>");
 		fe1_1.getFields();
 		
 		Question fe1_1_01 = new Question("FEG-10101-01", "FEG-10101", 1, "H24 春 FE午前 01",3);
-		fe1_1_01.put();
+		try {
+			fe1_1_01.put();
+		} catch (NoSuchFieldException e1) {
+			e1.printStackTrace();
+		}
 		Question q1 = Question.get("FEG-10101-01");
 		resp.getWriter().println("<h2>");
+		if(q1 != null)
 		resp.getWriter().println(q1.getName()+"は登録されています");
+		else
+			resp.getWriter().println("登録されていません");
 		resp.getWriter().println("</h2>");
 		
 		

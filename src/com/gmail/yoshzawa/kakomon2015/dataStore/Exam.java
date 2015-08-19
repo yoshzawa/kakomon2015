@@ -11,19 +11,11 @@ import com.google.appengine.api.datastore.KeyFactory;
 @EntityKind
 public class Exam extends EntityCommon{
 	
-	@EntityField
-	String id;
+//	@EntityField
+//	String id;
 
 	@EntityField
 	String name;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -38,28 +30,13 @@ public class Exam extends EntityCommon{
 		setName(name);
 	}
 
-	public void put() {
-		String kindName = "Exams";
-		String id = getId();
-
-		Entity entity = getNewEntity(kindName,id);
-		entity.setProperty("id", getId());
-		entity.setProperty("name", getName());
-		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		dss.put(entity);
-	}
-
-	public static Exam get(String id) {
-		Key key = KeyFactory.createKey("Exams", id);
-		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		Entity e;
-		try {
-			e = dss.get(key);
+	public static Exam get(String id){
+		Entity e = get(Exam.class,id);
+		if(e != null){
 			String name = (String) e.getProperty("name");
 			return new Exam(id, name);
-		} catch (EntityNotFoundException e1) {
-			return null;
 		}
+		return null;
 	}
 
 }

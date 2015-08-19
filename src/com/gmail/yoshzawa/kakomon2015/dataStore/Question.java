@@ -2,6 +2,8 @@ package com.gmail.yoshzawa.kakomon2015.dataStore;
 
 import java.util.List;
 
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityKind;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -9,11 +11,21 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
+@EntityKind
 public class Question extends EntityCommon{
-	String id;
+	//@EntityField
+	//	String id;
+
+	@EntityField
 	String examKey;
+
+	@EntityField
 	int order;
+
+	@EntityField
 	String name;
+
+	@EntityField
 	int seikai;
 
 	public Question(String id, String examKey, int order, String name,int seikai) {
@@ -22,14 +34,6 @@ public class Question extends EntityCommon{
 		setOrder(order);
 		setName(name);
 		setSeikai(seikai);
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getExamKey() {
@@ -64,42 +68,16 @@ public class Question extends EntityCommon{
 		this.seikai = seikai;
 	}
 
-	public void put() {
-		String kindName = "Question";
-		String id = getId();
-
-		Entity entity = getNewEntity(kindName,id);
-		entity.setProperty("id", getId());
-		entity.setProperty("examKey", getExamKey());
-		entity.setProperty("order", getOrder()+"");
-		entity.setProperty("name", getName());
-		entity.setProperty("seikai", getSeikai()+"");
-		
-		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		dss.put(entity);
-	}
-
-	public static Question get(String id) {
-		Key key = KeyFactory.createKey("Question", id);
-		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		Entity e;
-		try {
-			e = dss.get(key);
+	public static Question get(String id){
+		Entity e = get(Question.class,id);
+		if(e != null){
 			String examKey = (String) e.getProperty("examKey");
-			String sOrder = (String) e.getProperty("order");
-			int order = Integer.parseInt(sOrder);
+			int order = (int)(long) e.getProperty("order");
 			String name = (String) e.getProperty("name");
-			String oSeikai = (String) e.getProperty("seikai");
-			int seikai = Integer.parseInt(oSeikai);
+			int seikai = (int)(long) e.getProperty("seikai");
 			return new Question(id,examKey,order,name,seikai);
-		} catch (EntityNotFoundException e1) {
-			return null;
 		}
-	}
-	public static List<Question> getQuestions(String examId){
 		return null;
 	}
-	
-	
 
 }
