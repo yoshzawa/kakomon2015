@@ -8,7 +8,7 @@ import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityKind;
 import com.google.appengine.api.datastore.Entity;
 
 @EntityKind
-public class Exam extends EntityCommon {
+public class MondaiPrint extends EntityCommon {
 
 	@EntityField
 	String name;
@@ -38,23 +38,23 @@ public class Exam extends EntityCommon {
 		setQuestions(qs);
 	}
 
-	public Exam(String id, String name, Set<String> questions) {
+	public MondaiPrint(String id, String name, Set<String> questions) {
 		setId(id);
 		setName(name);
 		setQuestions(questions);
 	}
 
-	public Exam(String id, String name) {
+	public MondaiPrint(String id, String name) {
 		this(id, name, new HashSet<String>());
 	}
 
-	public static Exam get(String id) {
-		Entity e = get(Exam.class, id);
+	public static MondaiPrint get(String id) {
+		Entity e = get(MondaiPrint.class, id);
 		if (e != null) {
 			String name = (String) e.getProperty("name");
 			@SuppressWarnings("unchecked")
 			Set<String> questions = (Set<String>) e.getProperty("questions");
-			return new Exam(id, name, questions);
+			return new MondaiPrint(id, name, questions);
 		}
 		return null;
 	}

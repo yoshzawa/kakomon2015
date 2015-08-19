@@ -72,5 +72,4 @@ public class Question extends EntityCommon{
 		}
 		return null;
 	}
-
 }
