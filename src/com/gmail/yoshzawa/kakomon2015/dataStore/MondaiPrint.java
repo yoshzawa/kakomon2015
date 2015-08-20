@@ -1,6 +1,8 @@
 package com.gmail.yoshzawa.kakomon2015.dataStore;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
@@ -54,8 +56,26 @@ public class MondaiPrint extends EntityCommon {
 			String name = (String) e.getProperty("name");
 			@SuppressWarnings("unchecked")
 			Set<String> questions = (Set<String>) e.getProperty("questions");
-			return new MondaiPrint(id, name, questions);
+			MondaiPrint mp = new MondaiPrint(id, name, questions);
+			return mp;
 		}
 		return null;
 	}
+
+	public static List<MondaiPrint> getList() {
+		List<Entity> eList = getList(MondaiPrint.class);
+		List<MondaiPrint> mpList = new ArrayList<MondaiPrint>(eList.size());
+		for (Entity e : eList) {
+			String name = (String) e.getProperty("name");
+			String id = (String) e.getProperty("id");
+			@SuppressWarnings("unchecked")
+			Set<String> questions = (Set<String>) e.getProperty("questions");
+			MondaiPrint mp = new MondaiPrint(id, name, questions);
+			mpList.add(mp);
+		}
+		return mpList;
+	}
+
+
+
 }

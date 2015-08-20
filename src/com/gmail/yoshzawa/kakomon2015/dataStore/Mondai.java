@@ -10,48 +10,18 @@ public class Mondai extends EntityCommon{
 	//	String id;
 
 	@EntityField
-	String[] questionKey;
-
-	@EntityField
 	String name;
 
 	@EntityField
-	int kaitouMax;
+	String mondaiPrintKey;
 
 	@EntityField
-	int seikai;
+	int sortOrder;
 
-	public String[] getQuestionKey() {
-		return questionKey;
-	}
+	@EntityField
+	String questionKey;
 
-	public void setQuestionKey(String[] questionKey) {
-		this.questionKey = questionKey;
-	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getKaitouMax() {
-		return kaitouMax;
-	}
-
-	public void setKaitouMax(int kaitouMax) {
-		this.kaitouMax = kaitouMax;
-	}
-
-	public int getSeikai() {
-		return seikai;
-	}
-
-	public void setSeikai(int seikai) {
-		this.seikai = seikai;
-	}
 
 
 }

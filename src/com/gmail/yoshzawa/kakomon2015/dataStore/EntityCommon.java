@@ -2,7 +2,9 @@ package com.gmail.yoshzawa.kakomon2015.dataStore;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
@@ -11,8 +13,11 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
 
 /**
  * @author t.yoshizawa
@@ -29,36 +34,41 @@ public class EntityCommon {
 		return entity;
 	}
 
-	public final void put() throws NoSuchFieldException
-	{
+	public final void put() throws NoSuchFieldException {
 		String kindName = getKind();
-		String[] fieldName = getFields();
+		String[] fieldNames = getFields();
 		String id = getId();
 
 		Entity entity = getNewEntity(kindName, id);
 		Class<? extends EntityCommon> cls = getClass();
-		try {
-
-			for (String s : fieldName) {
-				Field f = cls.getDeclaredField(s);
-				f.setAccessible(true);
-//				if(f.getType().equals(Integer.TYPE))
-//				{
-//					entity.setProperty(s, (Integer)f.getInt(this));
-//				} else 
-//				{
-					entity.setProperty(s, f.get(this));
-//				}
-			}
+			setFields(entity, cls, fieldNames);
+			setField(entity, cls, "id");
 			DatastoreService dss = DatastoreServiceFactory
 					.getDatastoreService();
 			dss.put(entity);
-		} catch (SecurityException e) {
-			throw new NoSuchFieldException();
-		} catch (IllegalArgumentException e) {
-			throw new NoSuchFieldException();
-		} catch (IllegalAccessException e) {
-			throw new NoSuchFieldException();
+	}
+
+	private void setFields(Entity entity, Class<? extends EntityCommon> clazz,
+			String[] fieldNames) throws NoSuchFieldException {
+		for (String s : fieldNames) {
+			setField(entity, clazz, s);
+		}
+	}
+
+	private void setField(Entity entity, Class<? extends EntityCommon> clazz,
+			String fieldName) throws NoSuchFieldException {
+		try {
+			Field f = clazz.getDeclaredField(fieldName);
+			f.setAccessible(true);
+			// if(f.getType().equals(Integer.TYPE))
+			// {
+			// entity.setProperty(s, (Integer)f.getInt(this));
+			// } else
+			// {
+			entity.setProperty(fieldName, f.get(this));
+			// }
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			throw new NoSuchFieldException(fieldName);
 		}
 	}
 
@@ -127,6 +137,18 @@ public class EntityCommon {
 		return s;
 	}
 
+	static List<Entity> getList(Class<? extends EntityCommon> clazz) {
+		List<Entity> entityList = new ArrayList<>();
+		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
+		Query q = new Query(clazz.getName());
+		q.addSort("id");
+		PreparedQuery preparedQuery = dss.prepare(q);
+		Iterable<Entity> eList =  preparedQuery.asIterable(); 
+		for(Entity e:eList){
+			entityList.add(e);
+		}
+		return entityList;
+	}
 	private static boolean checkAnnotation(Annotation[] annotations,
 			Class<? extends Annotation> clazz) {
 		boolean flag = false;
