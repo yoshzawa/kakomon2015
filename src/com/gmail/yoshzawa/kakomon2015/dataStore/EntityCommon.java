@@ -41,11 +41,10 @@ public class EntityCommon {
 
 		Entity entity = getNewEntity(kindName, id);
 		Class<? extends EntityCommon> cls = getClass();
-			setFields(entity, cls, fieldNames);
-			setField(entity, cls, "id");
-			DatastoreService dss = DatastoreServiceFactory
-					.getDatastoreService();
-			dss.put(entity);
+		setFields(entity, cls, fieldNames);
+		setProperty(entity, "id", getId());
+		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
+		dss.put(entity);
 	}
 
 	private void setFields(Entity entity, Class<? extends EntityCommon> clazz,
@@ -65,11 +64,15 @@ public class EntityCommon {
 			// entity.setProperty(s, (Integer)f.getInt(this));
 			// } else
 			// {
-			entity.setProperty(fieldName, f.get(this));
+			setProperty(entity,fieldName, f.get(this));
 			// }
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			throw new NoSuchFieldException(fieldName);
 		}
+	}
+
+	void setProperty(Entity entity, String fieldName, Object obj) {
+		entity.setProperty(fieldName, obj);
 	}
 
 	public static Entity get(Class<? extends EntityCommon> clazz, String id) {
@@ -140,15 +143,17 @@ public class EntityCommon {
 	static List<Entity> getList(Class<? extends EntityCommon> clazz) {
 		List<Entity> entityList = new ArrayList<>();
 		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		Query q = new Query(clazz.getName());
+		String className = clazz.getName();
+		Query q = new Query(className);
 		q.addSort("id");
 		PreparedQuery preparedQuery = dss.prepare(q);
-		Iterable<Entity> eList =  preparedQuery.asIterable(); 
-		for(Entity e:eList){
+		Iterable<Entity> eList = preparedQuery.asIterable();
+		for (Entity e : eList) {
 			entityList.add(e);
 		}
 		return entityList;
 	}
+
 	private static boolean checkAnnotation(Annotation[] annotations,
 			Class<? extends Annotation> clazz) {
 		boolean flag = false;
