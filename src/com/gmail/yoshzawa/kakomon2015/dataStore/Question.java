@@ -1,50 +1,24 @@
 package com.gmail.yoshzawa.kakomon2015.dataStore;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
+import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityKind;
 import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
-public class Question extends EntityCommon{
-	String id;
-	String examKey;
-	int order;
+@EntityKind
+public class Question extends EntityCommon {
+	// @EntityField
+	// String id;
+
+	@EntityField
 	String name;
+
+	@EntityField
+	int kaitouMax;
+
+	@EntityField
 	int seikai;
+	
 
-	public Question(String id, String examKey, int order, String name,int seikai) {
-		setId(id);
-		setExamKey(examKey);
-		setOrder(order);
-		setName(name);
-		setSeikai(seikai);
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getExamKey() {
-		return examKey;
-	}
-
-	public void setExamKey(String examKey) {
-		this.examKey = examKey;
-	}
-
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
-	}
 
 	public String getName() {
 		return name;
@@ -53,7 +27,15 @@ public class Question extends EntityCommon{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public int getKaitouMax() {
+		return kaitouMax;
+	}
+
+	public void setKaitouMax(int kaitouMax) {
+		this.kaitouMax = kaitouMax;
+	}
+
 	public int getSeikai() {
 		return seikai;
 	}
@@ -61,43 +43,23 @@ public class Question extends EntityCommon{
 	public void setSeikai(int seikai) {
 		this.seikai = seikai;
 	}
-
-	public void put() {
-		String kindName = "Question";
-		String id = getId();
-
-		Entity entity = getNewEntity(kindName,id);
-		entity.setProperty("id", getId());
-		entity.setProperty("examKey", getExamKey());
-		entity.setProperty("order", getOrder()+"");
-		entity.setProperty("name", getName());
-		entity.setProperty("seikai", getSeikai()+"");
-		
-		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		dss.put(entity);
+	
+	public Question(String id,String name,int kaitouMax,int seikai){
+		setId(id);
+		setName(name);
+		setKaitouMax(kaitouMax);
+		setSeikai(seikai);
 	}
 
 	public static Question get(String id) {
-		Key key = KeyFactory.createKey("Question", id);
-		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
-		Entity e;
-		try {
-			e = dss.get(key);
-			String examKey = (String) e.getProperty("examKey");
-			String sOrder = (String) e.getProperty("order");
-			int order = Integer.parseInt(sOrder);
+		Entity e = get(Question.class, id);
+		if (e != null) {
 			String name = (String) e.getProperty("name");
-			String oSeikai = (String) e.getProperty("seikai");
-			int seikai = Integer.parseInt(oSeikai);
-			return new Question(id,examKey,order,name,seikai);
-		} catch (EntityNotFoundException e1) {
-			return null;
-		}
-	}
-	public static List<Question> getQuestions(String examId){
-		
-	}
-	
-	
 
+			int kaitouMax = (int) (long) e.getProperty("kaitouMax");
+			int seikai = (int) (long) e.getProperty("seikai");
+			return new Question(id, name, kaitouMax, seikai);
+		}
+		return null;
+	}
 }
