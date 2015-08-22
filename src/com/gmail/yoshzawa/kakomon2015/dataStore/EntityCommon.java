@@ -13,7 +13,6 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
@@ -99,10 +98,10 @@ public class EntityCommon {
 	}
 
 	/**
-	 * ƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‚Â‚¢‚½ƒNƒ‰ƒX‚ÌƒNƒ‰ƒX–¼‚ğæ“¾ QlF
+	 * ï¿½Aï¿½mï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Â‚ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Xï¿½ÌƒNï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ ï¿½Qï¿½lï¿½F
 	 * http://www.ne.jp/asahi/hishidama/home/tech/java/annotation.html
 	 * 
-	 * @return EntityKindƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‚Â‚¢‚½ƒNƒ‰ƒX–¼
+	 * @return EntityKindï¿½Aï¿½mï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Â‚ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½
 	 */
 	public String getKind() {
 		Class<? extends EntityCommon> cls = getClass();
@@ -119,10 +118,10 @@ public class EntityCommon {
 	}
 
 	/**
-	 * ƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‚Â‚¢‚½ƒtƒB[ƒ‹ƒh‚ÌƒtƒB[ƒ‹ƒh–¼ˆê——‚ğæ“¾ QlF
+	 * ï¿½Aï¿½mï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Â‚ï¿½ï¿½ï¿½ï¿½tï¿½Bï¿½[ï¿½ï¿½ï¿½hï¿½Ìƒtï¿½Bï¿½[ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ê——ï¿½ï¿½ï¿½æ“¾ ï¿½Qï¿½lï¿½F
 	 * http://www.ne.jp/asahi/hishidama/home/tech/java/annotation.html
 	 * 
-	 * @return EntityFieldƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‚Â‚¢‚½ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg
+	 * @return EntityFieldï¿½Aï¿½mï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Â‚ï¿½ï¿½ï¿½ï¿½tï¿½Bï¿½[ï¿½ï¿½ï¿½hï¿½Ìƒï¿½ï¿½Xï¿½g
 	 */
 	public String[] getFields() {
 

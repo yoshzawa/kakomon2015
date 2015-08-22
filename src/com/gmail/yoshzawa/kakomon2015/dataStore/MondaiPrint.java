@@ -16,7 +16,7 @@ public class MondaiPrint extends EntityCommon {
 	String name;
 
 	@EntityField
-	Set<String> questions;
+	Set<String> mondai;
 
 	public String getName() {
 		return name;
@@ -26,24 +26,24 @@ public class MondaiPrint extends EntityCommon {
 		this.name = name;
 	}
 
-	public Set<String> getQuestions() {
-		return questions;
+	public Set<String> getMondai() {
+		return mondai;
 	}
 
-	public void setQuestions(Set<String> questions) {
-		this.questions = questions;
+	public void setMondai(Set<String> mondai) {
+		this.mondai = mondai;
 	}
 
-	public void addQuestions(String question) {
-		Set<String> qs = getQuestions();
-		qs.add(question);
-		setQuestions(qs);
+	public void addMondai(String mondai) {
+		Set<String> ms = getMondai();
+		ms.add(mondai);
+		setMondai(ms);
 	}
 
-	public MondaiPrint(String id, String name, Set<String> questions) {
+	public MondaiPrint(String id, String name, Set<String> mondais) {
 		setId(id);
 		setName(name);
-		setQuestions(questions);
+		setMondai(mondais);
 	}
 
 	public MondaiPrint(String id, String name) {
@@ -55,8 +55,8 @@ public class MondaiPrint extends EntityCommon {
 		if (e != null) {
 			String name = (String) e.getProperty("name");
 			@SuppressWarnings("unchecked")
-			Set<String> questions = (Set<String>) e.getProperty("questions");
-			MondaiPrint mp = new MondaiPrint(id, name, questions);
+			Set<String> mondai = (Set<String>) e.getProperty("mondai");
+			MondaiPrint mp = new MondaiPrint(id, name, mondai);
 			return mp;
 		}
 		return null;
@@ -69,13 +69,10 @@ public class MondaiPrint extends EntityCommon {
 			String name = (String) e.getProperty("name");
 			String id = (String) e.getProperty("id");
 			@SuppressWarnings("unchecked")
-			Set<String> questions = (Set<String>) e.getProperty("questions");
-			MondaiPrint mp = new MondaiPrint(id, name, questions);
+			Set<String> mondais = (Set<String>) e.getProperty("mondais");
+			MondaiPrint mp = new MondaiPrint(id, name, mondais);
 			mpList.add(mp);
 		}
 		return mpList;
 	}
-
-
-
 }

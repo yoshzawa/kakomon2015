@@ -42,23 +42,24 @@
 	<div class="container">
 		<h1>解答したプリントの種類を入力してください</h1>
 		<form method=get action="/mondai/list" class="form-inline">
-			<select class="form-control" name="MondaiPrintId">
-				<% 
-    	List<MondaiPrint> mpList = (List<MondaiPrint>)request.getAttribute("mpList");
-    	for(MondaiPrint mp : mpList){
-    	out.print("<OPTION VALUE='");
-    	out.print(mp.getId());
-    	out.print("'>");
-    	out.print(mp.getId());
-    	out.print(":");
-    	out.print(mp.getName());
-    	out.print("</OPTION>");
-    }
-    	
-//  <c:forEach var="obj" items="${mpList} }">
-//	<h2>${obj.id }</h2>
-//	</c:forEach>
-    %>
+			<select class="form-control" name="mondaiPrintId">
+				<%
+					List<MondaiPrint> mpList = (List<MondaiPrint>) request
+							.getAttribute("mpList");
+					for (MondaiPrint mp : mpList) {
+						out.print("<OPTION VALUE='");
+						out.print(mp.getId());
+						out.print("'>");
+						out.print(mp.getId());
+						out.print(":");
+						out.print(mp.getName());
+						out.print("</OPTION>");
+					}
+
+					//  <c:forEach var="obj" items="${mpList} }">
+					//	<h2>${obj.id }</h2>
+					//	</c:forEach>
+				%>
 			</select>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
