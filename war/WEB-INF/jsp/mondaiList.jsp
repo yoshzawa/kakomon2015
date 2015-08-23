@@ -48,14 +48,22 @@
 		%>
 			）の正解です
 		</h1>
+		
+		<table class="table table-bordered table-hover">
+		
 		<%
 			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
 			for (Mondai m : mList) {
-				out.print("<h2>");
-				out.print(m.getQuestionKey());
-				out.print("</h2>");
+				%>
+				<tr>
+				<th><%=  m.getQuestionKey()%></th>
+				<td><%= m.getQuestionName() %></td>
+				<td><%= "アイウエ".charAt(m.getSeikai()-1) %></td>
+				</tr>
+				<%
 			}
 		%>
+		</table>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
