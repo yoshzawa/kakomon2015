@@ -1,9 +1,6 @@
 package com.gmail.yoshzawa.kakomon2015;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,10 +18,7 @@ public class MondaiPrintListServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=UTF-8");
 
 		
-		String[] fe1_1_array={"FEG-10101-01","FEG-10101-02","FEG-10101-03"};
-
-		Set<String> fe1_1_mondai = new HashSet<String>(Arrays.asList(fe1_1_array));
-		MondaiPrint fe1_1 = new MondaiPrint("FEG-10101", "基礎理論",fe1_1_mondai);
+		MondaiPrint fe1_1 = new MondaiPrint("FEG-10101", "基礎理論");
 		MondaiPrint fe1_2 = new MondaiPrint("FEG-10201", "アルゴリズムとプログラミング");
 		
 		Mondai fe1_1_01 = new Mondai("FEG-10101-01", "FEG-10101 01", "FEG-10101", 1, "2014SFEAM01");

@@ -34,7 +34,6 @@
 				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="#"
 					role="button">Learn more &raquo;</a>
 			</p>
-			</p>
 		</div>
 	</div>
 
@@ -50,8 +49,7 @@
 			）の正解です
 		</h1>
 		<%
-			List<Mondai> mList = (List<Mondai>) request
-					.getAttribute("pList");
+			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
 			for (Mondai m : mList) {
 				out.print("<h2>");
 				out.print(m.getQuestionKey());

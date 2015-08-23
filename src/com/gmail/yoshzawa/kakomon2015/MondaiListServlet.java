@@ -1,7 +1,6 @@
 package com.gmail.yoshzawa.kakomon2015;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,16 +22,12 @@ public class MondaiListServlet extends HttpServlet {
 		
 		// 対象のMondaiPrintを取得
 		MondaiPrint mp = MondaiPrint.get(mondaiPrintId);
-		
-		// MondaiPrintのMondaiのidのリストを取得
-		Set<String> mSet = mp.getMondai();
-		
-		//idリストからMondaiを取得
-		List<Mondai> mList = Mondai.getListById(mSet);
+				
+		// Mondaiを取得
+		List<Mondai> mList = Mondai.getListByParentId(mondaiPrintId);
 				
 		req.setAttribute("mp", mp);
 		req.setAttribute("mList", mList);
-		
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/mondaiList.jsp");
 		rd.forward(req, resp);

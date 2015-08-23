@@ -101,7 +101,19 @@ public class Mondai extends EntityCommon{
 		return mList;
 	}
 
+	public static List<Mondai> getListByParentId(String mondaiPrintId) {
+		List<Entity> eList = getListByParentId(Mondai.class,"mondaiPrintKey",mondaiPrintId,"sortOrder");
+		List<Mondai> mList = new ArrayList<Mondai>(eList.size());
+		for (Entity e : eList) {
+			String id = (String) e.getProperty("id");
 
-
-
+			String name = (String) e.getProperty("name");
+			String mondaiPrintKey = (String) e.getProperty("mondaiPrintKey");
+			int sortOrder = (int) (long) e.getProperty("sortOrder");
+			String questionKey = (String) e.getProperty("questionKey");
+			Mondai q = new Mondai(id, name, mondaiPrintKey,sortOrder,questionKey);
+			mList.add(q);
+		}
+		return mList;
+	}
 }
