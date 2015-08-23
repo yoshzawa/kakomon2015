@@ -1,8 +1,8 @@
-<!-- Indices written at Sun, 23 Aug 2015 13:21:18 JST -->
+<!-- Indices written at Sun, 23 Aug 2015 14:00:33 JST -->
 
 <datastore-indexes>
 
-    <!-- Used 1 time in query history -->
+    <!-- Used 2 times in query history -->
     <datastore-index kind="com.gmail.yoshzawa.kakomon2015.dataStore.Mondai" ancestor="false" source="auto">
         <property name="mondaiPrintKey" direction="asc"/>
         <property name="sortOrder" direction="asc"/>
