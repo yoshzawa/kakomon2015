@@ -362,6 +362,40 @@ public class Kakomon2015Servlet extends HttpServlet {
 		new Question("H27SFEAM08", "平成27年春 基本情報 午前 08", 4, 1).put();
 		new Question("H27SFEAM09", "平成27年春 基本情報 午前 09", 4, 1).put();
 		new Question("H27SFEAM10", "平成27年春 基本情報 午前 10", 4, 3).put();
+		
+		new Question("H27SFEAM11", "平成27年春 基本情報 午前 11", 4, 1).put();
+		new Question("H27SFEAM12", "平成27年春 基本情報 午前 12", 4, 3).put();
+		new Question("H27SFEAM13", "平成27年春 基本情報 午前 13", 4, 4).put();
+		new Question("H27SFEAM14", "平成27年春 基本情報 午前 14", 4, 1).put();
+		new Question("H27SFEAM15", "平成27年春 基本情報 午前 15", 4, 2).put();
+		new Question("H27SFEAM16", "平成27年春 基本情報 午前 16", 4, 4).put();
+		new Question("H27SFEAM17", "平成27年春 基本情報 午前 17", 4, 4).put();
+		new Question("H27SFEAM18", "平成27年春 基本情報 午前 18", 4, 2).put();
+		new Question("H27SFEAM19", "平成27年春 基本情報 午前 19", 4, 3).put();
+		new Question("H27SFEAM20", "平成27年春 基本情報 午前 20", 4, 4).put();
+		
+		new Question("H27SFEAM21", "平成27年春 基本情報 午前 21", 4, 1).put();
+		new Question("H27SFEAM22", "平成27年春 基本情報 午前 22", 4, 3).put();
+		new Question("H27SFEAM23", "平成27年春 基本情報 午前 23", 4, 3).put();
+		new Question("H27SFEAM24", "平成27年春 基本情報 午前 24", 4, 4).put();
+		new Question("H27SFEAM25", "平成27年春 基本情報 午前 25", 4, 4).put();
+		new Question("H27SFEAM26", "平成27年春 基本情報 午前 26", 4, 3).put();
+		new Question("H27SFEAM27", "平成27年春 基本情報 午前 27", 4, 1).put();
+		new Question("H27SFEAM28", "平成27年春 基本情報 午前 28", 4, 4).put();
+		new Question("H27SFEAM29", "平成27年春 基本情報 午前 29", 4, 2).put();
+		new Question("H27SFEAM30", "平成27年春 基本情報 午前 30", 4, 4).put();
+		
+		new Question("H27SFEAM31", "平成27年春 基本情報 午前 31", 4, 4).put();
+		new Question("H27SFEAM32", "平成27年春 基本情報 午前 32", 4, 2).put();
+		new Question("H27SFEAM33", "平成27年春 基本情報 午前 33", 4, 3).put();
+		new Question("H27SFEAM34", "平成27年春 基本情報 午前 34", 4, 3).put();
+		new Question("H27SFEAM35", "平成27年春 基本情報 午前 35", 4, 2).put();
+		new Question("H27SFEAM36", "平成27年春 基本情報 午前 36", 4, 1).put();
+		new Question("H27SFEAM37", "平成27年春 基本情報 午前 37", 4, 2).put();
+		new Question("H27SFEAM38", "平成27年春 基本情報 午前 38", 4, 3).put();
+		new Question("H27SFEAM39", "平成27年春 基本情報 午前 39", 4, 1).put();
+		new Question("H27SFEAM40", "平成27年春 基本情報 午前 40", 4, 3).put();
+		
 	}
 
 	private void q26s() throws NoSuchFieldException {

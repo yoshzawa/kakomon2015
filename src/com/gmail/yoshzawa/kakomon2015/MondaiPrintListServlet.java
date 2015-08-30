@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gmail.yoshzawa.kakomon2015.dataStore.Mondai;
 import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
 
 @SuppressWarnings("serial")
