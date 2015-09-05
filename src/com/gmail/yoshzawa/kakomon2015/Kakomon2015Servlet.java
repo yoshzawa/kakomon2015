@@ -47,7 +47,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 			H24S.m();
 			H24F.m();
 			H25S.m();
-			m25a();
+			H25F.m();
 			m26h();
 			m26a();
 			m27h();
@@ -55,7 +55,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 			H24S.q();
 			H24F.q();
 			H25S.q();
-			q25f();
+			H25F.q();
 			q26s();
 			q26f();
 			q27s();
