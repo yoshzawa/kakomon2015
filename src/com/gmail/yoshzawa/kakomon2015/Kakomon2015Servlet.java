@@ -48,7 +48,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 			H24F.m();
 			H25S.m();
 			H25F.m();
-			m26h();
+			H26S.m();
 			m26a();
 			m27h();
 			
@@ -56,7 +56,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 			H24F.q();
 			H25S.q();
 			H25F.q();
-			q26s();
+			H26S.q();
 			q26f();
 			q27s();
 
@@ -110,18 +110,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 		new Mondai("FE-H26A-AM-10", "FE-H26A-AM-10", "FE-H26A-AM", 10,"H26FFEAM10").put();
 	}
 
-	private void m25a() throws NoSuchFieldException {
-		new Mondai("FE-H25A-AM-01", "FE-H25A-AM-01", "FE-H25A-AM", 1,"H25FFEAM01").put();
-		new Mondai("FE-H25A-AM-02", "FE-H25A-AM-02", "FE-H25A-AM", 2,"H25FFEAM02").put();
-		new Mondai("FE-H25A-AM-03", "FE-H25A-AM-03", "FE-H25A-AM", 3,"H25FFEAM03").put();
-		new Mondai("FE-H25A-AM-04", "FE-H25A-AM-04", "FE-H25A-AM", 4,"H25FFEAM04").put();
-		new Mondai("FE-H25A-AM-05", "FE-H25A-AM-05", "FE-H25A-AM", 5,"H25FFEAM05").put();
-		new Mondai("FE-H25A-AM-06", "FE-H25A-AM-06", "FE-H25A-AM", 6,"H25FFEAM06").put();
-		new Mondai("FE-H25A-AM-07", "FE-H25A-AM-07", "FE-H25A-AM", 7,"H25FFEAM07").put();
-		new Mondai("FE-H25A-AM-08", "FE-H25A-AM-08", "FE-H25A-AM", 8,"H25FFEAM08").put();
-		new Mondai("FE-H25A-AM-09", "FE-H25A-AM-09", "FE-H25A-AM", 9,"H25FFEAM09").put();
-		new Mondai("FE-H25A-AM-10", "FE-H25A-AM-10", "FE-H25A-AM", 10,"H25FFEAM10").put();
-	}
+
 
 
 
@@ -255,18 +244,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 
 
 
-	private void m25h() throws NoSuchFieldException {
-		new Mondai("FE-H25H-AM-01", "FE-H25H-AM-01", "FE-H25H-AM", 1,"H25SFEAM01").put();
-		new Mondai("FE-H25H-AM-02", "FE-H25H-AM-02", "FE-H25H-AM", 2,"H25SFEAM02").put();
-		new Mondai("FE-H25H-AM-03", "FE-H25H-AM-03", "FE-H25H-AM", 3,"H25SFEAM03").put();
-		new Mondai("FE-H25H-AM-04", "FE-H25H-AM-04", "FE-H25H-AM", 4,"H25SFEAM04").put();
-		new Mondai("FE-H25H-AM-05", "FE-H25H-AM-05", "FE-H25H-AM", 5,"H25SFEAM05").put();
-		new Mondai("FE-H25H-AM-06", "FE-H25H-AM-06", "FE-H25H-AM", 6,"H25SFEAM06").put();
-		new Mondai("FE-H25H-AM-07", "FE-H25H-AM-07", "FE-H25H-AM", 7,"H25SFEAM07").put();
-		new Mondai("FE-H25H-AM-08", "FE-H25H-AM-08", "FE-H25H-AM", 8,"H25SFEAM08").put();
-		new Mondai("FE-H25H-AM-09", "FE-H25H-AM-09", "FE-H25H-AM", 9,"H25SFEAM09").put();
-		new Mondai("FE-H25H-AM-10", "FE-H25H-AM-10", "FE-H25H-AM", 10,"H25SFEAM10").put();
-	}
+
 
 	private void m26h() throws NoSuchFieldException {
 		new Mondai("FE-H26H-AM-01", "FE-H26H-AM-01", "FE-H26H-AM", 1,"H26SFEAM01").put();
@@ -367,18 +345,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 		new Question("H26SFEAM10", "平成26年春 基本情報 午前 10", 4, 4).put();
 	}
 
-	private void q25f() throws NoSuchFieldException {
-		new Question("H25FFEAM01", "平成25年秋 基本情報 午前 01", 4, 3).put();
-		new Question("H25FFEAM02", "平成25年秋 基本情報 午前 02", 4, 1).put();
-		new Question("H25FFEAM03", "平成25年秋 基本情報 午前 03", 4, 3).put();
-		new Question("H25FFEAM04", "平成25年秋 基本情報 午前 04", 4, 3).put();
-		new Question("H25FFEAM05", "平成25年秋 基本情報 午前 05", 4, 3).put();
-		new Question("H25FFEAM06", "平成25年秋 基本情報 午前 06", 4, 1).put();
-		new Question("H25FFEAM07", "平成25年秋 基本情報 午前 07", 4, 4).put();
-		new Question("H25FFEAM08", "平成25年秋 基本情報 午前 08", 4, 1).put();
-		new Question("H25FFEAM09", "平成25年秋 基本情報 午前 09", 4, 2).put();
-		new Question("H25FFEAM10", "平成25年秋 基本情報 午前 10", 4, 3).put();
-	}
+
 
 
 
