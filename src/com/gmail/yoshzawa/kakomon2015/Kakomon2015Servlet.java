@@ -34,6 +34,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 
 			M101.m();
 			M102.m();
+			M103.m();
 
 		} catch (NoSuchFieldException e1) {
 			e1.printStackTrace();
