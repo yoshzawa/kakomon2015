@@ -49,19 +49,18 @@ public class Kakomon2015Servlet extends HttpServlet {
 			H25S.m();
 			H25F.m();
 			H26S.m();
-			m26a();
-			m27h();
+			H26F.m();
+			H27S.m();
 			
 			H24S.q();
 			H24F.q();
 			H25S.q();
 			H25F.q();
 			H26S.q();
-			q26f();
-			q27s();
+			H26F.q();
+			H27S.q();
 
 		} catch (NoSuchFieldException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -72,47 +71,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 		else
 			resp.getWriter().println("登録されていません");
 		resp.getWriter().println("</h1>");
-
-		Question q01 = Question.get("2014SFEAM01");
-		resp.getWriter().println("<h1>");
-		if (e != null) {
-			int seikai = q01.getSeikai();
-			resp.getWriter().println(
-					q01.getName() + "は" + "アイウエ".substring(seikai - 1, seikai)
-							+ "登録されています");
-		} else
-			resp.getWriter().println("登録されていません");
-		resp.getWriter().println("</h1>");
-
-		Question q02 = Question.get("2014SFEAM02");
-		resp.getWriter().println("<h1>");
-		if (e != null) {
-			int seikai = q02.getSeikai();
-			resp.getWriter().println(
-					q02.getName() + "は" + "アイウエ".substring(seikai - 1, seikai)
-							+ "登録されています");
-		} else
-			resp.getWriter().println("登録されていません");
-		resp.getWriter().println("</h1>");
-
 	}
-
-	private void m26a() throws NoSuchFieldException {
-		new Mondai("FE-H26A-AM-01", "FE-H26A-AM-01", "FE-H26A-AM", 1,"H26FFEAM01").put();
-		new Mondai("FE-H26A-AM-02", "FE-H26A-AM-02", "FE-H26A-AM", 2,"H26FFEAM02").put();
-		new Mondai("FE-H26A-AM-03", "FE-H26A-AM-03", "FE-H26A-AM", 3,"H26FFEAM03").put();
-		new Mondai("FE-H26A-AM-04", "FE-H26A-AM-04", "FE-H26A-AM", 4,"H26FFEAM04").put();
-		new Mondai("FE-H26A-AM-05", "FE-H26A-AM-05", "FE-H26A-AM", 5,"H26FFEAM05").put();
-		new Mondai("FE-H26A-AM-06", "FE-H26A-AM-06", "FE-H26A-AM", 6,"H26FFEAM06").put();
-		new Mondai("FE-H26A-AM-07", "FE-H26A-AM-07", "FE-H26A-AM", 7,"H26FFEAM07").put();
-		new Mondai("FE-H26A-AM-08", "FE-H26A-AM-08", "FE-H26A-AM", 8,"H26FFEAM08").put();
-		new Mondai("FE-H26A-AM-09", "FE-H26A-AM-09", "FE-H26A-AM", 9,"H26FFEAM09").put();
-		new Mondai("FE-H26A-AM-10", "FE-H26A-AM-10", "FE-H26A-AM", 10,"H26FFEAM10").put();
-	}
-
-
-
-
 
 	private void m10204() throws NoSuchFieldException {
 		new Mondai("FEG-10204-01", "FEG-10204 01", "FEG-10204", 1,"H24SFEAM05").put();
@@ -241,115 +200,4 @@ public class Kakomon2015Servlet extends HttpServlet {
 		new Mondai("FEG-10101-25", "FEG-10101 25", "FEG-10101", 25,"H27SFEAM03").put();
 		new Mondai("FEG-10101-26", "FEG-10101 26", "FEG-10101", 26,"H27SFEAM04").put();
 	}
-
-
-
-
-
-	private void m26h() throws NoSuchFieldException {
-		new Mondai("FE-H26H-AM-01", "FE-H26H-AM-01", "FE-H26H-AM", 1,"H26SFEAM01").put();
-		new Mondai("FE-H26H-AM-02", "FE-H26H-AM-02", "FE-H26H-AM", 2,"H26SFEAM02").put();
-		new Mondai("FE-H26H-AM-03", "FE-H26H-AM-03", "FE-H26H-AM", 3,"H26SFEAM03").put();
-		new Mondai("FE-H26H-AM-04", "FE-H26H-AM-04", "FE-H26H-AM", 4,"H26SFEAM04").put();
-		new Mondai("FE-H26H-AM-05", "FE-H26H-AM-05", "FE-H26H-AM", 5,"H26SFEAM05").put();
-		new Mondai("FE-H26H-AM-06", "FE-H26H-AM-06", "FE-H26H-AM", 6,"H26SFEAM06").put();
-		new Mondai("FE-H26H-AM-07", "FE-H26H-AM-07", "FE-H26H-AM", 7,"H26SFEAM07").put();
-		new Mondai("FE-H26H-AM-08", "FE-H26H-AM-08", "FE-H26H-AM", 8,"H26SFEAM08").put();
-		new Mondai("FE-H26H-AM-09", "FE-H26H-AM-09", "FE-H26H-AM", 9,"H26SFEAM09").put();
-		new Mondai("FE-H26H-AM-10", "FE-H26H-AM-10", "FE-H26H-AM", 10,"H26SFEAM10").put();
-	}
-
-	private void m27h() throws NoSuchFieldException {
-		new Mondai("FE-H27H-AM-01", "FE-H27H-AM-01", "FE-H27H-AM", 1,"H27SFEAM01").put();
-		new Mondai("FE-H27H-AM-02", "FE-H27H-AM-02", "FE-H27H-AM", 2,"H27SFEAM02").put();
-		new Mondai("FE-H27H-AM-03", "FE-H27H-AM-03", "FE-H27H-AM", 3,"H27SFEAM03").put();
-		new Mondai("FE-H27H-AM-04", "FE-H27H-AM-04", "FE-H27H-AM", 4,"H27SFEAM04").put();
-		new Mondai("FE-H27H-AM-05", "FE-H27H-AM-05", "FE-H27H-AM", 5,"H27SFEAM05").put();
-		new Mondai("FE-H27H-AM-06", "FE-H27H-AM-06", "FE-H27H-AM", 6,"H27SFEAM06").put();
-		new Mondai("FE-H27H-AM-07", "FE-H27H-AM-07", "FE-H27H-AM", 7,"H27SFEAM07").put();
-		new Mondai("FE-H27H-AM-08", "FE-H27H-AM-08", "FE-H27H-AM", 8,"H27SFEAM08").put();
-		new Mondai("FE-H27H-AM-09", "FE-H27H-AM-09", "FE-H27H-AM", 9,"H27SFEAM09").put();
-		new Mondai("FE-H27H-AM-10", "FE-H27H-AM-10", "FE-H27H-AM", 10,"H27SFEAM10").put();
-	}
-
-	private void q26f() throws NoSuchFieldException {
-		new Question("H26FFEAM01", "平成26年秋 基本情報 午前 01", 4, 4).put();
-		new Question("H26FFEAM02", "平成26年秋 基本情報 午前 02", 4, 1).put();
-		new Question("H26FFEAM03", "平成26年秋 基本情報 午前 03", 4, 4).put();
-		new Question("H26FFEAM04", "平成26年秋 基本情報 午前 04", 4, 4).put();
-		new Question("H26FFEAM05", "平成26年秋 基本情報 午前 05", 4, 2).put();
-		new Question("H26FFEAM06", "平成26年秋 基本情報 午前 06", 4, 1).put();
-		new Question("H26FFEAM07", "平成26年秋 基本情報 午前 07", 4, 4).put();
-		new Question("H26FFEAM08", "平成26年秋 基本情報 午前 08", 4, 4).put();
-		new Question("H26FFEAM09", "平成26年秋 基本情報 午前 09", 4, 4).put();
-		new Question("H26FFEAM10", "平成26年秋 基本情報 午前 10", 4, 2).put();
-	}
-
-	private void q27s() throws NoSuchFieldException {
-		new Question("H27SFEAM01", "平成27年春 基本情報 午前 01", 4, 3).put();
-		new Question("H27SFEAM02", "平成27年春 基本情報 午前 02", 4, 1).put();
-		new Question("H27SFEAM03", "平成27年春 基本情報 午前 03", 4, 4).put();
-		new Question("H27SFEAM04", "平成27年春 基本情報 午前 04", 4, 2).put();
-		new Question("H27SFEAM05", "平成27年春 基本情報 午前 05", 4, 2).put();
-		new Question("H27SFEAM06", "平成27年春 基本情報 午前 06", 4, 1).put();
-		new Question("H27SFEAM07", "平成27年春 基本情報 午前 07", 4, 4).put();
-		new Question("H27SFEAM08", "平成27年春 基本情報 午前 08", 4, 1).put();
-		new Question("H27SFEAM09", "平成27年春 基本情報 午前 09", 4, 1).put();
-		new Question("H27SFEAM10", "平成27年春 基本情報 午前 10", 4, 3).put();
-		
-		new Question("H27SFEAM11", "平成27年春 基本情報 午前 11", 4, 1).put();
-		new Question("H27SFEAM12", "平成27年春 基本情報 午前 12", 4, 3).put();
-		new Question("H27SFEAM13", "平成27年春 基本情報 午前 13", 4, 4).put();
-		new Question("H27SFEAM14", "平成27年春 基本情報 午前 14", 4, 1).put();
-		new Question("H27SFEAM15", "平成27年春 基本情報 午前 15", 4, 2).put();
-		new Question("H27SFEAM16", "平成27年春 基本情報 午前 16", 4, 4).put();
-		new Question("H27SFEAM17", "平成27年春 基本情報 午前 17", 4, 4).put();
-		new Question("H27SFEAM18", "平成27年春 基本情報 午前 18", 4, 2).put();
-		new Question("H27SFEAM19", "平成27年春 基本情報 午前 19", 4, 3).put();
-		new Question("H27SFEAM20", "平成27年春 基本情報 午前 20", 4, 4).put();
-		
-		new Question("H27SFEAM21", "平成27年春 基本情報 午前 21", 4, 1).put();
-		new Question("H27SFEAM22", "平成27年春 基本情報 午前 22", 4, 3).put();
-		new Question("H27SFEAM23", "平成27年春 基本情報 午前 23", 4, 3).put();
-		new Question("H27SFEAM24", "平成27年春 基本情報 午前 24", 4, 4).put();
-		new Question("H27SFEAM25", "平成27年春 基本情報 午前 25", 4, 4).put();
-		new Question("H27SFEAM26", "平成27年春 基本情報 午前 26", 4, 3).put();
-		new Question("H27SFEAM27", "平成27年春 基本情報 午前 27", 4, 1).put();
-		new Question("H27SFEAM28", "平成27年春 基本情報 午前 28", 4, 4).put();
-		new Question("H27SFEAM29", "平成27年春 基本情報 午前 29", 4, 2).put();
-		new Question("H27SFEAM30", "平成27年春 基本情報 午前 30", 4, 4).put();
-		
-		new Question("H27SFEAM31", "平成27年春 基本情報 午前 31", 4, 4).put();
-		new Question("H27SFEAM32", "平成27年春 基本情報 午前 32", 4, 2).put();
-		new Question("H27SFEAM33", "平成27年春 基本情報 午前 33", 4, 3).put();
-		new Question("H27SFEAM34", "平成27年春 基本情報 午前 34", 4, 3).put();
-		new Question("H27SFEAM35", "平成27年春 基本情報 午前 35", 4, 2).put();
-		new Question("H27SFEAM36", "平成27年春 基本情報 午前 36", 4, 1).put();
-		new Question("H27SFEAM37", "平成27年春 基本情報 午前 37", 4, 2).put();
-		new Question("H27SFEAM38", "平成27年春 基本情報 午前 38", 4, 3).put();
-		new Question("H27SFEAM39", "平成27年春 基本情報 午前 39", 4, 1).put();
-		new Question("H27SFEAM40", "平成27年春 基本情報 午前 40", 4, 3).put();
-		
-	}
-
-	private void q26s() throws NoSuchFieldException {
-		new Question("H26SFEAM01", "平成26年春 基本情報 午前 01", 4, 1).put();
-		new Question("H26SFEAM02", "平成26年春 基本情報 午前 02", 4, 3).put();
-		new Question("H26SFEAM03", "平成26年春 基本情報 午前 03", 4, 4).put();
-		new Question("H26SFEAM04", "平成26年春 基本情報 午前 04", 4, 3).put();
-		new Question("H26SFEAM05", "平成26年春 基本情報 午前 05", 4, 3).put();
-		new Question("H26SFEAM06", "平成26年春 基本情報 午前 06", 4, 3).put();
-		new Question("H26SFEAM07", "平成26年春 基本情報 午前 07", 4, 2).put();
-		new Question("H26SFEAM08", "平成26年春 基本情報 午前 08", 4, 1).put();
-		new Question("H26SFEAM09", "平成26年春 基本情報 午前 09", 4, 4).put();
-		new Question("H26SFEAM10", "平成26年春 基本情報 午前 10", 4, 4).put();
-	}
-
-
-
-
-
-
-
-
 }
