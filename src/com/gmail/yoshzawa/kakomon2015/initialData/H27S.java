@@ -1,10 +1,13 @@
 package com.gmail.yoshzawa.kakomon2015.initialData;
 
 import com.gmail.yoshzawa.kakomon2015.dataStore.Mondai;
+import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
 import com.gmail.yoshzawa.kakomon2015.dataStore.Question;
 
 public class H27S {
 	public static void m() throws NoSuchFieldException {
+		new MondaiPrint("FE-H27H-AM", "H27春午前").put();
+
 		new Mondai("FE-H27H-AM-01", "FE-H27H-AM-01", "FE-H27H-AM", 1,"H27SFEAM01").put();
 		new Mondai("FE-H27H-AM-02", "FE-H27H-AM-02", "FE-H27H-AM", 2,"H27SFEAM02").put();
 		new Mondai("FE-H27H-AM-03", "FE-H27H-AM-03", "FE-H27H-AM", 3,"H27SFEAM03").put();
