@@ -3,7 +3,7 @@ package com.gmail.yoshzawa.kakomon2015.initialData;
 import com.gmail.yoshzawa.kakomon2015.dataStore.Mondai;
 import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
 
-public class M103 {
+public class M203 {
 	public static void m() throws NoSuchFieldException {
 		new MondaiPrint("FEG-20301", "コンピュータ構成要素").put();
 		new MondaiPrint("FEG-20302", "プロセッサ").put();
