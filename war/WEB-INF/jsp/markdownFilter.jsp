@@ -1,3 +1,4 @@
+<%@page import="com.gmail.yoshzawa.kakomon2015.dataStore.Mondai"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,44 +26,20 @@
 </head>
 <body>
 
-	<div class="jumbotron">
-		<div class="container">
 
-			<h1>午前過去問題の正解を見る</h1>
-			<p>
-				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="#"
-					role="button">Learn more &raquo;</a>
-			</p>
-			</p>
-		</div>
-	</div>
 
 
 
 	<div class="container">
-		<h1>解答したプリントの種類を入力してください</h1>
-		<form method=get action="/mondai/list" class="form-inline">
-			<select class="form-control" name="mondaiPrintId">
-				<%
-					List<MondaiPrint> mpList = (List<MondaiPrint>) request
-							.getAttribute("mpList");
-					for (MondaiPrint mp : mpList) {
-						out.print("<OPTION VALUE='");
-						out.print(mp.getId());
-						out.print("'>");
-						out.print(mp.getId());
-						out.print(":");
-						out.print(mp.getName());
-						out.print("</OPTION>");
-					}
 
-					//  <c:forEach var="obj" items="${mpList} }">
-					//	<h2>${obj.id }</h2>
-					//	</c:forEach>
-				%>
-			</select>
-			<button type="submit" class="btn btn-default">Submit</button>
-		</form>
+		<%
+			List<String>  html = (List<String>) request.getAttribute("html");
+			for(String s:html){
+				out.println(s);
+			}
+		%>
+
+
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
