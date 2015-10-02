@@ -34,17 +34,17 @@ public class M203 {
 		new Mondai("FEG-20303-10", "FEG-20303 10", "FEG-20303", 10,"H26FFEAM12").put();
 		new Mondai("FEG-20303-11", "FEG-20303 11", "FEG-20303", 11,"H27SFEAM10").put();
 
-		new Mondai("FEG-20304-02", "FEG-20304 02", "FEG-20304", 2,"H24SFEAM09").put();
+		new Mondai("FEG-20304-01", "FEG-20304 01", "FEG-20304", 1,"H24SFEAM09").put();
 		new Mondai("FEG-20304-02", "FEG-20304 02", "FEG-20304", 2,"H24SFEAM14").put();
 		new Mondai("FEG-20304-03", "FEG-20304 03", "FEG-20304", 3,"H24FFEAM08").put();
-		new Mondai("FEG-20304-03", "FEG-20304 03", "FEG-20304", 3,"H24FFEAM12").put();
-		new Mondai("FEG-20304-02", "FEG-20304 02", "FEG-20304", 2,"H25SFEAM13").put();
-		new Mondai("FEG-20304-03", "FEG-20304 03", "FEG-20304", 3,"H25FFEAM11").put();
-		new Mondai("FEG-20304-03", "FEG-20304 03", "FEG-20304", 3,"H25FFEAM12").put();
-		new Mondai("FEG-20304-02", "FEG-20304 02", "FEG-20304", 2,"H26SFEAM12").put();
-		new Mondai("FEG-20304-03", "FEG-20304 03", "FEG-20304", 3,"H26FFEAM08").put();
-		new Mondai("FEG-20304-02", "FEG-20304 02", "FEG-20304", 2,"H27SFEAM07").put();
-		new Mondai("FEG-20304-02", "FEG-20304 02", "FEG-20304", 2,"H27SFEAM08").put();
+		new Mondai("FEG-20304-04", "FEG-20304 04", "FEG-20304", 4,"H24FFEAM12").put();
+		new Mondai("FEG-20304-05", "FEG-20304 05", "FEG-20304", 5,"H25SFEAM13").put();
+		new Mondai("FEG-20304-06", "FEG-20304 06", "FEG-20304", 6,"H25FFEAM11").put();
+		new Mondai("FEG-20304-07", "FEG-20304 07", "FEG-20304", 7,"H25FFEAM12").put();
+		new Mondai("FEG-20304-08", "FEG-20304 08", "FEG-20304", 8,"H26SFEAM12").put();
+		new Mondai("FEG-20304-09", "FEG-20304 09", "FEG-20304", 9,"H26FFEAM08").put();
+		new Mondai("FEG-20304-10", "FEG-20304 10", "FEG-20304", 10,"H27SFEAM07").put();
+		new Mondai("FEG-20304-11", "FEG-20304 11", "FEG-20304", 11,"H27SFEAM08").put();
 
 	}
 	
