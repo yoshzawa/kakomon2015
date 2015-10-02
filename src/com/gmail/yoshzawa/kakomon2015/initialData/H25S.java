@@ -108,8 +108,8 @@ public class H25S {
 		new Question("H25SFEAM09", "平成25年春 基本情報 午前 09", 4, 1).put();
 		new Question("H25SFEAM10", "平成25年春 基本情報 午前 10", 4, 1).put();
 
-		new Question("H25SFEAM11", "平成25年春 基本情報 午前 11", 4, 1).put();
-		new Question("H25SFEAM12", "平成25年春 基本情報 午前 12", 4, 1).put();
+		new Question("H25SFEAM11", "平成25年春 基本情報 午前 11", 4, 2).put();
+		new Question("H25SFEAM12", "平成25年春 基本情報 午前 12", 4, 2).put();
 		new Question("H25SFEAM13", "平成25年春 基本情報 午前 13", 4, 4).put();
 		new Question("H25SFEAM14", "平成25年春 基本情報 午前 14", 4, 1).put();
 		new Question("H25SFEAM15", "平成25年春 基本情報 午前 15", 4, 1).put();
