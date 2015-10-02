@@ -9,12 +9,54 @@ public class M102 {
 		new MondaiPrint("FEG-10202", "データ構造").put();
 		new MondaiPrint("FEG-10203", "フローチャート").put();
 		new MondaiPrint("FEG-10204", "アルゴリズムとプログラミング その他").put();
+		new MondaiPrint("FEG-10205", "データ構造1").put();
+		new MondaiPrint("FEG-10206", "データ構造2").put();
+		new MondaiPrint("FEG-10207", "アルゴリズムとプログラミング その他1").put();
+		new MondaiPrint("FEG-10208", "アルゴリズムとプログラミング その他2").put();
 
 		m10201();
 		m10202();
 		m10203();
 		m10204();
+		m10205();	
+		m10206();
+		m10207();
+		m10208();
 
+	}
+
+	private static void m10208() throws NoSuchFieldException {
+		new Mondai("FEG-10208-01", "FEG-10208 01", "FEG-10208", 1,"H24SFEAM05").put();
+		new Mondai("FEG-10208-02", "FEG-10208 02", "FEG-10208", 2,"H25SFEAM07").put();
+		new Mondai("FEG-10208-03", "FEG-10208 03", "FEG-10208", 3,"H26FFEAM04").put();
+	}
+
+	private static void m10207() throws NoSuchFieldException {
+		new Mondai("FEG-10207-01", "FEG-10207 01", "FEG-10207", 1,"H24SFEAM08").put();
+		new Mondai("FEG-10207-02", "FEG-10207 02", "FEG-10207", 2,"H24FFEAM07").put();
+		new Mondai("FEG-10207-03", "FEG-10207 03", "FEG-10207", 3,"H25FFEAM07").put();
+		new Mondai("FEG-10207-04", "FEG-10207 04", "FEG-10207", 4,"H26SFEAM05").put();
+		new Mondai("FEG-10207-05", "FEG-10207 05", "FEG-10207", 5,"H26FFEAM06").put();
+		new Mondai("FEG-10207-06", "FEG-10207 06", "FEG-10207", 6,"H26FFEAM07").put();
+		new Mondai("FEG-10207-07", "FEG-10207 07", "FEG-10207", 7,"H27SFEAM06").put();
+	}
+
+	private static void m10206() throws NoSuchFieldException {
+		new Mondai("FEG-10206-01", "FEG-10206 01", "FEG-10206", 1,"H24SFEAM04").put();
+		new Mondai("FEG-10206-02", "FEG-10206 02", "FEG-10206", 2,"H24SFEAM07").put();
+		new Mondai("FEG-10206-03", "FEG-10206 03", "FEG-10206", 3,"H25SFEAM05").put();
+		new Mondai("FEG-10206-04", "FEG-10206 04", "FEG-10206", 4,"H25FFEAM06").put();
+		new Mondai("FEG-10206-05", "FEG-10206 05", "FEG-10206", 5,"H26SFEAM06").put();
+	}
+
+	private static void m10205() throws NoSuchFieldException {
+		new Mondai("FEG-10205-01", "FEG-10205 01", "FEG-10205", 1,"H24SFEAM06").put();
+		new Mondai("FEG-10205-02", "FEG-10205 02", "FEG-10205", 2,"H24FFEAM05").put();
+		new Mondai("FEG-10205-03", "FEG-10205 03", "FEG-10205", 3,"H25SFEAM06").put();
+		new Mondai("FEG-10205-04", "FEG-10205 04", "FEG-10205", 4,"H25FFEAM05").put();
+		new Mondai("FEG-10205-05", "FEG-10205 05", "FEG-10205", 5,"H26SFEAM07").put();
+		new Mondai("FEG-10205-06", "FEG-10205 06", "FEG-10205", 6,"H26FFEAM05").put();
+		new Mondai("FEG-10205-07", "FEG-10205 07", "FEG-10205", 7,"H27SFEAM05").put();
 	}
 	
 	private static void m10201() throws NoSuchFieldException {
