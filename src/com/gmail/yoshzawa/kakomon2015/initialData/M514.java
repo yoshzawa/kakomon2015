@@ -3,7 +3,7 @@ package com.gmail.yoshzawa.kakomon2015.initialData;
 import com.gmail.yoshzawa.kakomon2015.dataStore.Mondai;
 import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
 
-public class M514 {
+public class M514 extends MondaiSet {
 	public static void m() throws NoSuchFieldException {
 		new MondaiPrint("FEG-51402", "PERT").put();
 		new MondaiPrint("FEG-51403", "作業見積").put();
@@ -43,7 +43,13 @@ public class M514 {
 		new Mondai("FEG-51405-07", "FEG-51405 07", "FEG-51405", 7,"H26SFEAM55").put();
 		new Mondai("FEG-51405-08", "FEG-51405 08", "FEG-51405", 8,"H26FFEAM55").put();
 		new Mondai("FEG-51405-09", "FEG-51405 09", "FEG-51405", 9,"H27SFEAM52").put();
-		new Mondai("FEG-51405-10", "FEG-51405 10", "FEG-51405", 10,"H27SFEAM55").put();
+		
+		String mondaiPrintName = "FEG-51405";
+
+
+		mondaiPut(mondaiPrintName, "09", "H27SFEAM52");
+		mondaiPut(mondaiPrintName, "10", "H27SFEAM55");
+		
 	}
 	
 }
