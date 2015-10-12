@@ -36,6 +36,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 			M102.m();
 			M203.m();
 			M204.m();
+			M205.m();
 			M412.m();
 			M514.m();
 			M922.m();
