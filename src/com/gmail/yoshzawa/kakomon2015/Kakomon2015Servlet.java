@@ -38,6 +38,7 @@ public class Kakomon2015Servlet extends HttpServlet {
 			M204.m();
 			M412.m();
 			M514.m();
+			M922.m();
 			M923.m();
 
 		} catch (NoSuchFieldException e1) {
