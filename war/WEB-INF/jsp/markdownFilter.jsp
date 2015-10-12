@@ -36,44 +36,20 @@
 </head>
 <body>
 
-	<div class="jumbotron">
-		<div class="container">
 
-			<h1>午前過去問題の正解を見る</h1>
-			<p>
-				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="#"
-					role="button">Learn more &raquo;</a>
-			</p>
-		</div>
-	</div>
 
 
 
 	<div class="container">
-		<h1>
-			選択したプリント（
-			<%
-			MondaiPrint mp = (MondaiPrint) request.getAttribute("mp");
-			out.print(mp.getName());
-		%>
-			）の正解です
-		</h1>
-		
-		<table class="table table-bordered table-hover">
-		
+
 		<%
-			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
-			for (Mondai m : mList) {
-				%>
-				<tr>
-				<th><%=  m.getQuestionKey()%></th>
-				<td><%= m.getQuestionName() %></td>
-				<td><%= "アイウエ".charAt(m.getSeikai()-1) %></td>
-				</tr>
-				<%
+			List<String>  html = (List<String>) request.getAttribute("html");
+			for(String s:html){
+				out.println(s);
 			}
 		%>
-		</table>
+
+
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
