@@ -13,11 +13,13 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
 
 /**
  * @author t.yoshizawa
@@ -59,13 +61,7 @@ public class EntityCommon {
 		try {
 			Field f = clazz.getDeclaredField(fieldName);
 			f.setAccessible(true);
-			// if(f.getType().equals(Integer.TYPE))
-			// {
-			// entity.setProperty(s, (Integer)f.getInt(this));
-			// } else
-			// {
-			setProperty(entity,fieldName, f.get(this));
-			// }
+			setProperty(entity, fieldName, f.get(this));
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			throw new NoSuchFieldException(fieldName);
 		}
@@ -99,10 +95,10 @@ public class EntityCommon {
 	}
 
 	/**
-	 * アノテーションのついたクラスのクラス名を取得 参考：
+	 * 
 	 * http://www.ne.jp/asahi/hishidama/home/tech/java/annotation.html
 	 * 
-	 * @return EntityKindアノテーションのついたクラス名
+	 * @return EntityKind
 	 */
 	public String getKind() {
 		Class<? extends EntityCommon> cls = getClass();
@@ -119,10 +115,10 @@ public class EntityCommon {
 	}
 
 	/**
-	 * アノテーションのついたフィールドのフィールド名一覧を取得 参考：
+	 * 
 	 * http://www.ne.jp/asahi/hishidama/home/tech/java/annotation.html
 	 * 
-	 * @return EntityFieldアノテーションのついたフィールドのリスト
+	 * @return EntityField
 	 */
 	public String[] getFields() {
 
@@ -146,6 +142,24 @@ public class EntityCommon {
 		String className = clazz.getName();
 		Query q = new Query(className);
 		q.addSort("id");
+		PreparedQuery preparedQuery = dss.prepare(q);
+		Iterable<Entity> eList = preparedQuery.asIterable();
+		for (Entity e : eList) {
+			entityList.add(e);
+		}
+		return entityList;
+	}
+
+	static List<Entity> getListByParentId(Class<? extends EntityCommon> clazz,
+			String parentKeyName, String parentKeyValue, String sortOrder) {
+		List<Entity> entityList = new ArrayList<>();
+		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
+		String className = clazz.getName();
+		Query q = new Query(className);
+		Filter parentKeyFilter = new FilterPredicate(parentKeyName,
+				FilterOperator.EQUAL, parentKeyValue);
+		q.setFilter(parentKeyFilter);
+		q.addSort(sortOrder);
 		PreparedQuery preparedQuery = dss.prepare(q);
 		Iterable<Entity> eList = preparedQuery.asIterable();
 		for (Entity e : eList) {
