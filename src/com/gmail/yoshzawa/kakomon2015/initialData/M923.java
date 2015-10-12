@@ -37,5 +37,4 @@ public class M923 extends MondaiSet {
 		mondaiPut(mondaiPrintName, "08", "H27SFEAM80");
 }
 	
-
 }
