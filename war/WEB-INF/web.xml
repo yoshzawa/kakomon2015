@@ -33,7 +33,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/kakomon2015</url-pattern>
 	</servlet-mapping>
 
-
 	<servlet>
 		<servlet-name>MarkDownDecoder</servlet-name>
 		<servlet-class>com.gmail.yoshzawa.mdDecoder.MarkDownDecoder</servlet-class>
