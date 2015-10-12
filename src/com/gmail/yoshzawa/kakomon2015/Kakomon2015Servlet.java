@@ -2,12 +2,27 @@ package com.gmail.yoshzawa.kakomon2015;
 
 import java.io.IOException;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.gmail.yoshzawa.kakomon2015.dataStore.Mondai;
 import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
-import com.gmail.yoshzawa.kakomon2015.dataStore.Question;
-import com.gmail.yoshzawa.kakomon2015.initialData.*;
+import com.gmail.yoshzawa.kakomon2015.initialData.H24F;
+import com.gmail.yoshzawa.kakomon2015.initialData.H24S;
+import com.gmail.yoshzawa.kakomon2015.initialData.H25F;
+import com.gmail.yoshzawa.kakomon2015.initialData.H25S;
+import com.gmail.yoshzawa.kakomon2015.initialData.H26F;
+import com.gmail.yoshzawa.kakomon2015.initialData.H26S;
+import com.gmail.yoshzawa.kakomon2015.initialData.H27S;
+import com.gmail.yoshzawa.kakomon2015.initialData.M101;
+import com.gmail.yoshzawa.kakomon2015.initialData.M102;
+import com.gmail.yoshzawa.kakomon2015.initialData.M203;
+import com.gmail.yoshzawa.kakomon2015.initialData.M204;
+import com.gmail.yoshzawa.kakomon2015.initialData.M205;
+import com.gmail.yoshzawa.kakomon2015.initialData.M412;
+import com.gmail.yoshzawa.kakomon2015.initialData.M514;
+import com.gmail.yoshzawa.kakomon2015.initialData.M922;
+import com.gmail.yoshzawa.kakomon2015.initialData.M923;
 
 @SuppressWarnings("serial")
 public class Kakomon2015Servlet extends HttpServlet {

@@ -2,7 +2,6 @@ package com.gmail.yoshzawa.kakomon2015.dataStore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityField;
 import com.gmail.yoshzawa.kakomon2015.dataStore.annotation.EntityKind;

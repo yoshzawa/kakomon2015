@@ -1,6 +1,5 @@
 package com.gmail.yoshzawa.kakomon2015.initialData;
 
-import com.gmail.yoshzawa.kakomon2015.dataStore.Mondai;
 import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
 
 public class M922 extends MondaiSet {

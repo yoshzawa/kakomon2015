@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 public class MarkDownDecoder extends HttpServlet {
 
 	@Override
