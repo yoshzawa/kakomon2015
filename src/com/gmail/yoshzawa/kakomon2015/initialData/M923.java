@@ -5,7 +5,7 @@ import com.gmail.yoshzawa.kakomon2015.dataStore.MondaiPrint;
 
 public class M923 extends MondaiSet {
 	public static void m() throws NoSuchFieldException {
-
+		
 		m92302();
 		m92303();
 	}
@@ -35,6 +35,7 @@ public class M923 extends MondaiSet {
 		mondaiPut(mondaiPrintName, "06", "H26SFEAM79");
 		mondaiPut(mondaiPrintName, "07", "H27SFEAM79");
 		mondaiPut(mondaiPrintName, "08", "H27SFEAM80");
-	}
+}
+	
 
 }
