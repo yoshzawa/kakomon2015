@@ -21,6 +21,11 @@ public class MondaiPrint extends EntityCommon {
 		this.name = name;
 	}
 
+	/**
+	 * コンストラクタ
+	 * @param id
+	 * @param name
+	 */
 	public MondaiPrint(String id, String name) {
 		setId(id);
 		setName(name);

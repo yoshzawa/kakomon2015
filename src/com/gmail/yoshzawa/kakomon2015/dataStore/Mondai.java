@@ -86,9 +86,20 @@ public class Mondai extends EntityCommon {
 
 	public Mondai(String id, String name, String mondaiPrintKey, int sortOrder,
 			String questionKey) {
-		this(id,name,mondaiPrintKey,sortOrder,questionKey,null,0,0);
+		this(id, name, mondaiPrintKey, sortOrder, questionKey, null, 0, 0);
 	}
 
+	/**
+	 * コンストラクタ
+	 * @param id
+	 * @param name
+	 * @param mondaiPrintKey
+	 * @param sortOrder
+	 * @param questionKey
+	 * @param questionName
+	 * @param kaitouMax
+	 * @param seikai
+	 */
 	public Mondai(String id, String name, String mondaiPrintKey, int sortOrder,
 			String questionKey, String questionName, int kaitouMax, int seikai) {
 		setId(id);
@@ -101,26 +112,38 @@ public class Mondai extends EntityCommon {
 		setSeikai(seikai);
 	}
 
+	/**
+	 * 指定されたIDのMondaiのインスタンスを返す
+	 * 
+	 * @return 指定されたIDに対応するMondai
+	 */
 	public static Mondai get(String id) {
 		Entity e = get(Mondai.class, id);
+		Mondai m = null;
 		if (e != null) {
-			return getFromEntity(id, e);
+			m = getFromEntity(id, e);
 		}
-		return null;
+		return m;
 	}
 
+	/**
+	 * 指定されたIDのMondaiのインスタンスを返す
+	 * 
+	 * @return 指定されたIDに対応するMondai
+	 */
 	private static Mondai getFromEntity(String id, Entity e) {
 		String name = (String) e.getProperty("name");
 		String mondaiPrintKey = (String) e.getProperty("mondaiPrintKey");
 		int sortOrder = (int) (long) e.getProperty("sortOrder");
 		String questionKey = (String) e.getProperty("questionKey");
-		
+
 		Question q = Question.get(questionKey);
 		String questionName = q.getName();
-		int kaitouMax=q.getKaitouMax();
-		int seikai=q.getSeikai();
-		
-		return new Mondai(id, name, mondaiPrintKey, sortOrder, questionKey,questionName,kaitouMax,seikai);
+		int kaitouMax = q.getKaitouMax();
+		int seikai = q.getSeikai();
+
+		return new Mondai(id, name, mondaiPrintKey, sortOrder, questionKey,
+				questionName, kaitouMax, seikai);
 	}
 
 	public static List<Mondai> getList() {
@@ -133,7 +156,6 @@ public class Mondai extends EntityCommon {
 		}
 		return mList;
 	}
-
 
 	public static List<Mondai> getListByParentId(String mondaiPrintId) {
 		List<Entity> eList = getListByParentId(Mondai.class, "mondaiPrintKey",

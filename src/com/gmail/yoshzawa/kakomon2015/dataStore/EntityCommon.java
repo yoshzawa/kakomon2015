@@ -30,7 +30,15 @@ public class EntityCommon {
 	@EntityField
 	String id;
 
-	private Entity getNewEntity(String kindName, String id) {
+	public final String getId() {
+		return id;
+	}
+
+	public final void setId(String id) {
+		this.id = id;
+	}
+	
+	private final Entity getNewEntity(String kindName, String id) {
 		Key key = KeyFactory.createKey(kindName, id);
 		Entity entity = new Entity(key);
 		return entity;
@@ -49,15 +57,17 @@ public class EntityCommon {
 		dss.put(entity);
 	}
 
-	private void setFields(Entity entity, Class<? extends EntityCommon> clazz,
-			String[] fieldNames) throws NoSuchFieldException {
+	private final void setFields(Entity entity,
+			Class<? extends EntityCommon> clazz, String[] fieldNames)
+			throws NoSuchFieldException {
 		for (String s : fieldNames) {
 			setField(entity, clazz, s);
 		}
 	}
 
-	private void setField(Entity entity, Class<? extends EntityCommon> clazz,
-			String fieldName) throws NoSuchFieldException {
+	private final void setField(Entity entity,
+			Class<? extends EntityCommon> clazz, String fieldName)
+			throws NoSuchFieldException {
 		try {
 			Field f = clazz.getDeclaredField(fieldName);
 			f.setAccessible(true);
@@ -67,32 +77,34 @@ public class EntityCommon {
 		}
 	}
 
-	void setProperty(Entity entity, String fieldName, Object obj) {
+	final void setProperty(Entity entity, String fieldName, Object obj) {
 		entity.setProperty(fieldName, obj);
 	}
 
-	public static Entity get(Class<? extends EntityCommon> clazz, String id) {
+	/**
+	 * 指定されたKindの、指定されたIDのEntityを取得する
+	 * @param clazz Kind
+	 * @param id ID
+	 * @return 該当するIDを持ったEntity、存在しなければnull
+	 */
+	public static final Entity get(Class<? extends EntityCommon> clazz,
+			String id) {
 
+		// 保存するKind名（クラス名）を文字列で取得
 		String kindName = getKind(clazz);
 
+		// 保存するKind名（クラス名）を文字列で取得
 		Key key = KeyFactory.createKey(kindName, id);
 		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
+		Entity e = null;
 		try {
-			Entity e;
 			e = dss.get(key);
-			return e;
 		} catch (EntityNotFoundException e1) {
-			return null;
 		}
+		return e;
 	}
 
-	public final String getId() {
-		return id;
-	}
 
-	public final void setId(String id) {
-		this.id = id;
-	}
 
 	/**
 	 * 
@@ -100,12 +112,12 @@ public class EntityCommon {
 	 * 
 	 * @return EntityKind
 	 */
-	public String getKind() {
+	public final String getKind() {
 		Class<? extends EntityCommon> cls = getClass();
 		return getKind(cls);
 	}
 
-	public static String getKind(Class<? extends EntityCommon> cls) {
+	public final static String getKind(Class<? extends EntityCommon> cls) {
 		Annotation[] as = cls.getDeclaredAnnotations();
 
 		if (checkAnnotation(as, EntityKind.class) == true) {
@@ -120,7 +132,7 @@ public class EntityCommon {
 	 * 
 	 * @return EntityField
 	 */
-	public String[] getFields() {
+	public final String[] getFields() {
 
 		Set<String> fSet = new HashSet<String>();
 		Class<? extends EntityCommon> cls = getClass();
@@ -136,7 +148,7 @@ public class EntityCommon {
 		return s;
 	}
 
-	static List<Entity> getList(Class<? extends EntityCommon> clazz) {
+	static final List<Entity> getList(Class<? extends EntityCommon> clazz) {
 		List<Entity> entityList = new ArrayList<>();
 		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
 		String className = clazz.getName();
@@ -150,8 +162,9 @@ public class EntityCommon {
 		return entityList;
 	}
 
-	static List<Entity> getListByParentId(Class<? extends EntityCommon> clazz,
-			String parentKeyName, String parentKeyValue, String sortOrder) {
+	static final List<Entity> getListByParentId(
+			Class<? extends EntityCommon> clazz, String parentKeyName,
+			String parentKeyValue, String sortOrder) {
 		List<Entity> entityList = new ArrayList<>();
 		DatastoreService dss = DatastoreServiceFactory.getDatastoreService();
 		String className = clazz.getName();
@@ -168,12 +181,12 @@ public class EntityCommon {
 		return entityList;
 	}
 
-	private static boolean checkAnnotation(Annotation[] annotations,
+	private final static boolean checkAnnotation(Annotation[] annotations,
 			Class<? extends Annotation> clazz) {
 		boolean flag = false;
 		for (Annotation a : annotations) {
 			Class<? extends Annotation> at = a.annotationType();
-			if (at.equals(clazz)) {
+			if (at.equals(clazz) == true ) {
 				flag = true;
 			}
 		}
