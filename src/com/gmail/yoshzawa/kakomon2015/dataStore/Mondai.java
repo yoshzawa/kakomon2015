@@ -91,6 +91,7 @@ public class Mondai extends EntityCommon {
 
 	/**
 	 * コンストラクタ
+	 * 
 	 * @param id
 	 * @param name
 	 * @param mondaiPrintKey
@@ -127,7 +128,7 @@ public class Mondai extends EntityCommon {
 	}
 
 	/**
-	 * 指定されたIDのMondaiのインスタンスを返す
+	 * 指定されたEntityを基に、Questionのデータを取得して、Mondaiのインスタンスを作成する
 	 * 
 	 * @return 指定されたIDに対応するMondai
 	 */
@@ -146,10 +147,23 @@ public class Mondai extends EntityCommon {
 				questionName, kaitouMax, seikai);
 	}
 
+	/**
+	 * 全件を取得し、ArrayListに格納して返す
+	 * 
+	 * @return Mondaiの格納されたArrayList
+	 */
 	public static List<Mondai> getList() {
+		
+		// エンティティ受け取り
 		List<Entity> eList = getList(Mondai.class);
+
+		// ArrayList作成
 		List<Mondai> mList = new ArrayList<Mondai>(eList.size());
+
+		// 全てのエンティティをeListに詰め直す
 		for (Entity e : eList) {
+			
+			// エンティティをMondaiのインスタンスに
 			String id = (String) e.getProperty("id");
 			Mondai q = getFromEntity(id, e);
 			mList.add(q);
@@ -158,10 +172,18 @@ public class Mondai extends EntityCommon {
 	}
 
 	public static List<Mondai> getListByParentId(String mondaiPrintId) {
+
+		// エンティティ受け取り
 		List<Entity> eList = getListByParentId(Mondai.class, "mondaiPrintKey",
 				mondaiPrintId, "sortOrder");
+
+		// ArrayList作成
 		List<Mondai> mList = new ArrayList<Mondai>(eList.size());
+
+		// 全てのエンティティをeListに詰め直す
 		for (Entity e : eList) {
+
+			// エンティティをMondaiのインスタンスに
 			String id = (String) e.getProperty("id");
 			Mondai q = getFromEntity(id, e);
 			mList.add(q);
