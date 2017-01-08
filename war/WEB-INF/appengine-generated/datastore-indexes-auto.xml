@@ -1,0 +1,11 @@
+<!-- Indices written at Sun, 8 Jan 2017 18:55:44 JST -->
+
+<datastore-indexes>
+
+    <!-- Used 2 times in query history -->
+    <datastore-index kind="com.gmail.yoshzawa.kakomon2015.dataStore.Mondai" ancestor="false" source="auto">
+        <property name="mondaiPrintKey" direction="asc"/>
+        <property name="sortOrder" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

@@ -120,31 +120,8 @@ public class Mondai extends EntityCommon {
 	 */
 	public static Mondai get(String id) {
 		Entity e = get(Mondai.class, id);
-		Mondai m = null;
-		if (e != null) {
-			m = getFromEntity(id, e);
-		}
+		Mondai m = makeInstanceFromEntity(id, e);
 		return m;
-	}
-
-	/**
-	 * 指定されたEntityを基に、Questionのデータを取得して、Mondaiのインスタンスを作成する
-	 * 
-	 * @return 指定されたIDに対応するMondai
-	 */
-	private static Mondai getFromEntity(String id, Entity e) {
-		String name = (String) e.getProperty("name");
-		String mondaiPrintKey = (String) e.getProperty("mondaiPrintKey");
-		int sortOrder = (int) (long) e.getProperty("sortOrder");
-		String questionKey = (String) e.getProperty("questionKey");
-
-		Question q = Question.get(questionKey);
-		String questionName = q.getName();
-		int kaitouMax = q.getKaitouMax();
-		int seikai = q.getSeikai();
-
-		return new Mondai(id, name, mondaiPrintKey, sortOrder, questionKey,
-				questionName, kaitouMax, seikai);
 	}
 
 	/**
@@ -153,7 +130,7 @@ public class Mondai extends EntityCommon {
 	 * @return Mondaiの格納されたArrayList
 	 */
 	public static List<Mondai> getList() {
-		
+
 		// エンティティ受け取り
 		List<Entity> eList = getList(Mondai.class);
 
@@ -162,10 +139,9 @@ public class Mondai extends EntityCommon {
 
 		// 全てのエンティティをeListに詰め直す
 		for (Entity e : eList) {
-			
+
 			// エンティティをMondaiのインスタンスに
-			String id = (String) e.getProperty("id");
-			Mondai q = getFromEntity(id, e);
+			Mondai q = makeInstanceFromEntity(e);
 			mList.add(q);
 		}
 		return mList;
@@ -183,11 +159,39 @@ public class Mondai extends EntityCommon {
 		// 全てのエンティティをeListに詰め直す
 		for (Entity e : eList) {
 
-			// エンティティをMondaiのインスタンスに
-			String id = (String) e.getProperty("id");
-			Mondai q = getFromEntity(id, e);
+			Mondai q = makeInstanceFromEntity(e);
 			mList.add(q);
 		}
 		return mList;
+	}
+
+	/**
+	 * 指定されたEntityを基に、Questionのデータを取得して、Mondaiのインスタンスを作成する
+	 * 
+	 * @return 指定されたIDに対応するMondai
+	 */
+	private static Mondai makeInstanceFromEntity(String id, Entity e) {
+		Mondai m = null;
+		if (e != null) {
+			String name = (String) e.getProperty("name");
+			String mondaiPrintKey = (String) e.getProperty("mondaiPrintKey");
+			int sortOrder = (int) (long) e.getProperty("sortOrder");
+			String questionKey = (String) e.getProperty("questionKey");
+
+			Question q = Question.get(questionKey);
+			String questionName = q.getName();
+			int kaitouMax = q.getKaitouMax();
+			int seikai = q.getSeikai();
+
+			m = new Mondai(id, name, mondaiPrintKey, sortOrder, questionKey,
+					questionName, kaitouMax, seikai);
+		}
+		return m;
+	}
+
+	private static Mondai makeInstanceFromEntity(Entity e) {
+		String id = (String) e.getProperty("id");
+		Mondai q = makeInstanceFromEntity(id, e);
+		return q;
 	}
 }

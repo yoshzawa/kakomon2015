@@ -70,15 +70,7 @@ public class Question extends EntityCommon {
 
 		// エンティティ受け取り(ID指定）
 		Entity e = get(Question.class, id);
-		Question q = null;
-
-		if (e != null) {
-			// エンティティをインスタンスに変換
-			String name = (String) e.getProperty("name");
-			int kaitouMax = (int) (long) e.getProperty("kaitouMax");
-			int seikai = (int) (long) e.getProperty("seikai");
-			q = new Question(id, name, kaitouMax, seikai);
-		}
+		Question q = makeInstanceFromEntity(id, e);
 		return q;
 	}
 
@@ -98,15 +90,30 @@ public class Question extends EntityCommon {
 		// 全てのエンティティをqListに詰め直す
 		for (Entity e : eList) {
 			// エンティティをQuestionのインスタンスに
-			String id = (String) e.getProperty("id");
-			String name = (String) e.getProperty("name");
-			int kaitouMax = (int) (long) e.getProperty("kaitouMax");
-			int seikai = (int) (long) e.getProperty("seikai");
-			Question q = new Question(id, name, kaitouMax, seikai);
+			Question q = makeInstanceFromEntity(e);
 			// インスタンスをqListに格納
 			qList.add(q);
 		}
 		// 詰め直したArrayListを返す
 		return qList;
+	}
+
+	private static Question makeInstanceFromEntity(String id, Entity e) {
+		Question q = null;
+	
+		if (e != null) {
+			// エンティティをインスタンスに変換
+			String name = (String) e.getProperty("name");
+			int kaitouMax = (int) (long) e.getProperty("kaitouMax");
+			int seikai = (int) (long) e.getProperty("seikai");
+			q = new Question(id, name, kaitouMax, seikai);
+		}
+		return q;
+	}
+
+	private static Question makeInstanceFromEntity(Entity e) {
+		String id = (String) e.getProperty("id");
+		Question q = makeInstanceFromEntity(id, e);
+		return q;
 	}
 }
