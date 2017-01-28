@@ -66,7 +66,7 @@ public class Question extends EntityCommon {
 	 * 
 	 * @return 指定されたIDに対応するQuestion
 	 */
-	public static Question get(String id) {
+	public static final Question get(String id) {
 
 		// エンティティ受け取り(ID指定）
 		Entity e = get(Question.class, id);
@@ -79,7 +79,7 @@ public class Question extends EntityCommon {
 	 * 
 	 * @return Questionの格納されたArrayList
 	 */
-	public static List<Question> getList() {
+	public static final List<Question> getList() {
 
 		// エンティティ受け取り
 		List<Entity> eList = getList(Question.class);
@@ -98,7 +98,7 @@ public class Question extends EntityCommon {
 		return qList;
 	}
 
-	private static Question makeInstanceFromEntity(String id, Entity e) {
+	private static final Question makeInstanceFromEntity(String id, Entity e) {
 		Question q = null;
 	
 		if (e != null) {
@@ -111,7 +111,7 @@ public class Question extends EntityCommon {
 		return q;
 	}
 
-	private static Question makeInstanceFromEntity(Entity e) {
+	private static final Question makeInstanceFromEntity(Entity e) {
 		String id = (String) e.getProperty("id");
 		Question q = makeInstanceFromEntity(id, e);
 		return q;

@@ -118,7 +118,7 @@ public class Mondai extends EntityCommon {
 	 * 
 	 * @return 指定されたIDに対応するMondai
 	 */
-	public static Mondai get(String id) {
+	public static final Mondai get(String id) {
 		Entity e = get(Mondai.class, id);
 		Mondai m = makeInstanceFromEntity(id, e);
 		return m;
@@ -129,7 +129,7 @@ public class Mondai extends EntityCommon {
 	 * 
 	 * @return Mondaiの格納されたArrayList
 	 */
-	public static List<Mondai> getList() {
+	public static final List<Mondai> getList() {
 
 		// エンティティ受け取り
 		List<Entity> eList = getList(Mondai.class);
@@ -147,7 +147,7 @@ public class Mondai extends EntityCommon {
 		return mList;
 	}
 
-	public static List<Mondai> getListByParentId(String mondaiPrintId) {
+	public static final List<Mondai> getListByParentId(String mondaiPrintId) {
 
 		// エンティティ受け取り
 		List<Entity> eList = getListByParentId(Mondai.class, "mondaiPrintKey",
@@ -170,7 +170,7 @@ public class Mondai extends EntityCommon {
 	 * 
 	 * @return 指定されたIDに対応するMondai
 	 */
-	private static Mondai makeInstanceFromEntity(String id, Entity e) {
+	private static final Mondai makeInstanceFromEntity(String id, Entity e) {
 		Mondai m = null;
 		if (e != null) {
 			String name = (String) e.getProperty("name");
@@ -189,7 +189,7 @@ public class Mondai extends EntityCommon {
 		return m;
 	}
 
-	private static Mondai makeInstanceFromEntity(Entity e) {
+	private static final Mondai makeInstanceFromEntity(Entity e) {
 		String id = (String) e.getProperty("id");
 		Mondai q = makeInstanceFromEntity(id, e);
 		return q;
