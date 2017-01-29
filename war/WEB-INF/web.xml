@@ -40,8 +40,47 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>MarkDownDecoder</servlet-name>
 		<url-pattern>*.md</url-pattern>
-		
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>openId</servlet-name>
+		<servlet-class>com.gmail.yoshzawa.AzureOpenId.H28jk3aopenidtestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>openId</servlet-name>
+		<url-pattern>/openId</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>msredirect</servlet-name>
+		<servlet-class>com.gmail.yoshzawa.AzureOpenId.MicrosoftRedirectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>msredirect</servlet-name>
+		<url-pattern>/msredirect</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+    <filter-name>ObjectifyFilter</filter-name>
+    <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>ObjectifyFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+	<filter>
+		<filter-name>logincheck</filter-name>
+		<filter-class>com.gmail.yoshzawa.AzureOpenId.filter.LoginCheckFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>logincheck</filter-name>
+		<url-pattern>/login/*</url-pattern>
+	</filter-mapping>
+
+
+
 
 	<welcome-file-list>
 		<welcome-file>mondaiPrint/list</welcome-file>
