@@ -1,3 +1,4 @@
+<%@page import="com.gmail.yoshzawa.kakomon2015.dataStore.Mondai"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -11,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>午前過去問確認</title>
+<title>午前過去問確認 </title>
 
 <!-- Bootstrap -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,11 +39,10 @@
 	<div class="jumbotron">
 		<div class="container">
 
-			<h1>午前過去問題の正解を見る</h1>
+			<h1>午前過去問題の正解を入力する</h1>
 			<p>
-				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="/openid"
-					role="button">login &raquo;</a>
-			</p>
+				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="#"
+					role="button">Learn more &raquo;</a>
 			</p>
 		</div>
 	</div>
@@ -50,29 +50,30 @@
 
 
 	<div class="container">
-		<h1>解答したプリントの種類を入力してください</h1>
-		<form method=get action="/mondai/list" class="form-inline">
-			<select class="form-control" name="mondaiPrintId">
-				<%
-					List<MondaiPrint> mpList = (List<MondaiPrint>) request
-							.getAttribute("mpList");
-					for (MondaiPrint mp : mpList) {
-						out.print("<OPTION VALUE='");
-						out.print(mp.getId());
-						out.print("'>");
-						out.print(mp.getId());
-						out.print(":");
-						out.print(mp.getName());
-						out.print("</OPTION>");
-					}
-
-					//  <c:forEach var="obj" items="${mpList} }">
-					//	<h2>${obj.id }</h2>
-					//	</c:forEach>
+		<h1>
+			選択したプリント（
+			<%
+			MondaiPrint mp = (MondaiPrint) request.getAttribute("mp");
+			out.print(mp.getName());
+		%>
+			）の正解を入力してください。
+		</h1>
+		
+		<table class="table table-bordered table-hover">
+		
+		<%
+			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
+			for (Mondai m : mList) {
 				%>
-			</select>
-			<button type="submit" class="btn btn-default">Submit</button>
-		</form>
+				<tr>
+				<th><%=  m.getQuestionKey()%></th>
+				<td><%= m.getQuestionName() %></td>
+				<td><%= "アイウエ".charAt(m.getSeikai()-1) %></td>
+				</tr>
+				<%
+			}
+		%>
+		</table>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

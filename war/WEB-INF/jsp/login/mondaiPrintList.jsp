@@ -38,10 +38,10 @@
 	<div class="jumbotron">
 		<div class="container">
 
-			<h1>午前過去問題の正解を見る</h1>
+			<h1>午前過去問題の正解を入力する</h1>
 			<p>
-				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="/openid"
-					role="button">login &raquo;</a>
+				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="#"
+					role="button">Learn more &raquo;</a>
 			</p>
 			</p>
 		</div>
@@ -50,8 +50,8 @@
 
 
 	<div class="container">
-		<h1>解答したプリントの種類を入力してください</h1>
-		<form method=get action="/mondai/list" class="form-inline">
+		<h1>解答したプリントの種類を選択してください</h1>
+		<form method=get action="/login/mondai/list" class="form-inline">
 			<select class="form-control" name="mondaiPrintId">
 				<%
 					List<MondaiPrint> mpList = (List<MondaiPrint>) request

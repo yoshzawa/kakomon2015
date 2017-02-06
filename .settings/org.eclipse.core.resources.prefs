@@ -3,5 +3,7 @@ encoding//src/com/gmail/yoshzawa/kakomon2015/Kakomon2015Servlet.java=UTF-8
 encoding//src/com/gmail/yoshzawa/kakomon2015/MondaiListServlet.java=UTF-8
 encoding//src/com/gmail/yoshzawa/kakomon2015/MondaiPrintListServlet.java=UTF-8
 encoding//src/com/gmail/yoshzawa/kakomon2015/dataStore/EntityCommon.java=UTF-8
+encoding//src/com/gmail/yoshzawa/kakomon2015/login/MondaiListServlet.java=UTF-8
+encoding//src/com/gmail/yoshzawa/kakomon2015/login/MondaiPrintListServlet.java=UTF-8
 encoding//war/WEB-INF/jsp/mondaiPrintList.jsp=UTF-8
 encoding/<project>=UTF-8
