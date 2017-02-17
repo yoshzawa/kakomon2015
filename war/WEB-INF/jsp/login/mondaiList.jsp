@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>午前過去問確認 </title>
+<title>午前過去問確認</title>
 
 <!-- Bootstrap -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,15 @@
 </script>
 </head>
 <body>
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="...">
+      </a>
+    </div>
+  </div>
+</nav>
 	<div class="jumbotron">
 		<div class="container">
 
@@ -58,19 +66,26 @@
 		%>
 			）の正解を入力してください。
 		</h1>
-		
+
 		<table class="table table-bordered table-hover">
-		
-		<%
+
+			<%
 			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
 			for (Mondai m : mList) {
 				%>
-				<tr>
+			<tr>
 				<th><%=  m.getQuestionKey()%></th>
 				<td><%= m.getQuestionName() %></td>
-				<td><%= "アイウエ".charAt(m.getSeikai()-1) %></td>
-				</tr>
-				<%
+				<td>
+			<select class="form-control" name="mondaiPrintId">
+					<OPTION VALUE='1'>ア</OPTION>
+					<OPTION VALUE='2'>イ</OPTION>
+					<OPTION VALUE='3'>ウ</OPTION>
+					<OPTION VALUE='4'>エ</OPTION>
+					</select>
+				</td>
+			</tr>
+			<%
 			}
 		%>
 		</table>
