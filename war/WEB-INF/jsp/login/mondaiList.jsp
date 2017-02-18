@@ -1,3 +1,4 @@
+<%@page import="com.gmail.yoshzawa.kakomon2015.dataStore.Mondai"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -35,14 +36,21 @@
 </head>
 <body>
 
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="collapse navbar-collapse" id="navbarEexample7">
+		
+			<p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link">ゲスト</a> さん。</p>
+		</div>
+	</div>
+</nav>
 	<div class="jumbotron">
 		<div class="container">
 
-			<h1>午前過去問題の正解を見る</h1>
+			<h1>午前過去問題の正解を入力する</h1>
 			<p>
-				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="/openid"
-					role="button">login &raquo;</a>
-			</p>
+				配布した午前過去問題の正解を確認できるサイト <a class="btn btn-primary btn-lg" href="#"
+					role="button">Learn more &raquo;</a>
 			</p>
 		</div>
 	</div>
@@ -50,29 +58,37 @@
 
 
 	<div class="container">
-		<h1>解答したプリントの種類を入力してください</h1>
-		<form method=get action="/mondai/list" class="form-inline">
-			<select class="form-control" name="mondaiPrintId">
-				<%
-					List<MondaiPrint> mpList = (List<MondaiPrint>) request
-							.getAttribute("mpList");
-					for (MondaiPrint mp : mpList) {
-						out.print("<OPTION VALUE='");
-						out.print(mp.getId());
-						out.print("'>");
-						out.print(mp.getId());
-						out.print(":");
-						out.print(mp.getName());
-						out.print("</OPTION>");
-					}
+		<h1>
+			選択したプリント（
+			<%
+			MondaiPrint mp = (MondaiPrint) request.getAttribute("mp");
+			out.print(mp.getName());
+		%>
+			）の正解を入力してください。
+		</h1>
 
-					//  <c:forEach var="obj" items="${mpList} }">
-					//	<h2>${obj.id }</h2>
-					//	</c:forEach>
+		<table class="table table-bordered table-hover">
+
+			<%
+			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
+			for (Mondai m : mList) {
 				%>
-			</select>
-			<button type="submit" class="btn btn-default">Submit</button>
-		</form>
+			<tr>
+				<th><%=  m.getQuestionKey()%></th>
+				<td><%= m.getQuestionName() %></td>
+				<td>
+			<select class="form-control" name="mondaiPrintId">
+					<OPTION VALUE='1'>ア</OPTION>
+					<OPTION VALUE='2'>イ</OPTION>
+					<OPTION VALUE='3'>ウ</OPTION>
+					<OPTION VALUE='4'>エ</OPTION>
+					</select>
+				</td>
+			</tr>
+			<%
+			}
+		%>
+		</table>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
