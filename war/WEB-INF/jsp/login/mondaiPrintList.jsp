@@ -35,13 +35,12 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <img alt="Brand" src="...">
-      </a>
-    </div>
-  </div>
+	<div class="container-fluid">
+		<div class="collapse navbar-collapse" id="navbarEexample7">
+		
+			<p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link">ゲスト</a> さん。</p>
+		</div>
+	</div>
 </nav>
 	<div class="jumbotron">
 		<div class="container">

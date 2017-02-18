@@ -35,7 +35,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
 	<servlet>
 		<servlet-name>LoginMondaiListServlet</servlet-name>
-		<servlet-class>com.gmail.yoshzawa.kakomon2015.MondaiListServlet</servlet-class>
+		<servlet-class>com.gmail.yoshzawa.kakomon2015.login.MondaiListServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginMondaiListServlet</servlet-name>
