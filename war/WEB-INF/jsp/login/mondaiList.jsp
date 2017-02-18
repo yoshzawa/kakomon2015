@@ -74,9 +74,10 @@
 		%>
 			）の正解を入力してください。
 		</h1>
-
+		
+<form >
 		<table class="table table-bordered table-hover">
-
+			<input type="hidden" name="mondaiPrintId" value="<%= mp.getId() %>">
 			<%
 				List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
 				for (Mondai m : mList) {
@@ -89,13 +90,15 @@
 						<OPTION VALUE='2'>イ</OPTION>
 						<OPTION VALUE='3'>ウ</OPTION>
 						<OPTION VALUE='4'>エ</OPTION>
-						<OPTION VALUE='5' selected>保留</OPTION>
+						<OPTION VALUE='0' selected>わからない</OPTION>
 				</select></td>
 			</tr>
 			<%
 				}
 			%>
 		</table>
+		<input type="submit">
+</form>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
