@@ -24,26 +24,34 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
 
-  ga('create', 'UA-67262963-1', 'auto');
-  ga('send', 'pageview');
-
+	ga('create', 'UA-67262963-1', 'auto');
+	ga('send', 'pageview');
 </script>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="collapse navbar-collapse" id="navbarEexample7">
-		
-			<p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link">ゲスト</a> さん。</p>
+
+			<p class="navbar-text navbar-right">
+				ようこそ <a href="#" class="navbar-link">ゲスト</a> さん。
+			</p>
 		</div>
 	</div>
-</nav>
+	</nav>
 	<div class="jumbotron">
 		<div class="container">
 
@@ -66,29 +74,31 @@
 		%>
 			）の正解を入力してください。
 		</h1>
-
+		
+<form >
 		<table class="table table-bordered table-hover">
-
+			<input type="hidden" name="mondaiPrintId" value="<%= mp.getId() %>">
 			<%
-			List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
-			for (Mondai m : mList) {
-				%>
+				List<Mondai> mList = (List<Mondai>) request.getAttribute("mList");
+				for (Mondai m : mList) {
+			%>
 			<tr>
-				<th><%=  m.getQuestionKey()%></th>
-				<td><%= m.getQuestionName() %></td>
-				<td>
-			<select class="form-control" name="mondaiPrintId">
-					<OPTION VALUE='1'>ア</OPTION>
-					<OPTION VALUE='2'>イ</OPTION>
-					<OPTION VALUE='3'>ウ</OPTION>
-					<OPTION VALUE='4'>エ</OPTION>
-					</select>
-				</td>
+				<th><%=m.getQuestionKey()%></th>
+				<td><%=m.getQuestionName()%></td>
+				<td><select class="form-control" name="<%=m.getQuestionKey()%>">
+						<OPTION VALUE='1'>ア</OPTION>
+						<OPTION VALUE='2'>イ</OPTION>
+						<OPTION VALUE='3'>ウ</OPTION>
+						<OPTION VALUE='4'>エ</OPTION>
+						<OPTION VALUE='0' selected>わからない</OPTION>
+				</select></td>
 			</tr>
 			<%
-			}
-		%>
+				}
+			%>
 		</table>
+		<input type="submit">
+</form>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
