@@ -16,9 +16,7 @@ public class H28jk3aopenidtestServlet extends HttpServlet implements AzureConsta
 		url+="?client_id=" + AzureAppId;
 		url+="&response_type=id_token";
 		url+="&redirec_uri=http%3A%2F%2Ftwo.fivepro.xyz%2Fmsredirect%2F" ;
-//		url+="&redirec_uri=http%3A%2F%2Fh28jk3aopenidtest.appspot.com%2Fmsredirect" ;
 		url+="&response_mode=form_post";
-//		url+="&scope=openid";
 		url+="&scope=openid%20profile";
 		url+="&state=12345";
 		url+="&nonce=678910";
